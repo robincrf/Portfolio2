@@ -49,8 +49,10 @@ function AppContent() {
 function App() {
     return (
         <BrowserRouter basename="/Portfolio2">
-            <RedirectHandler />
-            <AppContent />
+            <ImageProvider>
+                <RedirectHandler />
+                <AppContent />
+            </ImageProvider>
         </BrowserRouter>
     );
 }

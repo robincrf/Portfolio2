@@ -25,8 +25,6 @@ const HamburgerMenu = ({ menuOpen: externalMenuOpen, onHamburgerClick: externalC
                     <li><Link to="/projet1">ECG C++</Link></li>
                     <li><Link to="/projet2">ASCON</Link></li>
                     <li><Link to="/projet3">Pipeline DQ</Link></li>
-                    <li>Projet 4</li>
-                    <li>Projet 5</li>
                 </ul>
             </nav>
         </div>

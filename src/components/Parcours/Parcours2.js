@@ -32,8 +32,8 @@ function Parcours2() {
                         <div className='parcours-section-text'>
                             <h3>Futures expériences</h3>
                             <p>
-                                Stage technique (3–5 mois, 2026) — Domaines ciblés : <br/>
-                                Ingénierie biomédicale, ESN, cybersécurité, développement logiciel. <br/><br/>
+                                Stage technique (3–5 mois, 2026) <br/> Domaines ciblés : <br/>
+                                ESN, Ingénierie biomédicale, développement logiciel. <br/><br/>
 
                                 Stage de fin d'étude (2027) <br/>
                                 Objectif : gestion de projets technologiques, IA appliquée ou développement logiciel avancé. <br/>

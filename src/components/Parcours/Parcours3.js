@@ -35,7 +35,7 @@ function Parcours3() {
                         <div className='parcours-section-text'>
                             <h3>Projets réalisés</h3>
                             <p>
-                                <b>Prédiction du cours de bourse (ML, Python)</b> <br/> - Développement d’une IA de modélisation de marché basée sur NLP et réseaux neuronaux. Stack : Python, PyTorch/TensorFlow, pipelines NLP et backtesting.<br/>
+                                <b>Prédiction du cours de bourse (ML, Python)</b> <br/> - Développement d’une IA de modélisation de marché basée sur NLP et réseaux neuronaux. Stack : Python, PyTorch/TensorFlow,<br/>
 
                                 <b>Implémentation du chiffrement ASCON en VHDL</b><br/> — Réalisation d’un module matériel conforme
                                 aux spécifications NIST pour le chiffrement léger. <br/>

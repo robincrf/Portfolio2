@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Navbar from '../../components/Navbar';
+import ProjetNavigation from '../../components/Projets/ProjetNavigation';
 import Footer from '../../components/Footer';
 import Presentation from '../../components/Projets/Presentation';
 import Techno from '../../components/Projets/Techno';
@@ -25,6 +26,7 @@ function Projet1() {
     return (
         <div className="projet1-page">
             <Navbar />
+            <ProjetNavigation currentProjet={1} />
             <main className="projet-content">
                 <Presentation projet={projetData} />
                 <Techno technologies={projetData.technologies} />
