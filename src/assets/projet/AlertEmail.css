@@ -1,0 +1,191 @@
+.alert-email-container {
+    background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    margin: 2rem 0;
+}
+
+.email-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 3px solid #4CAF50;
+    padding-bottom: 1.5rem;
+}
+
+.email-header h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.email-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+    font-weight: 400;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 5px solid #4CAF50;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+}
+
+.metric-card.status-warning {
+    border-left-color: #ff9800;
+}
+
+.metric-card.status-critical {
+    border-left-color: #f44336;
+}
+
+.metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.metric-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.status-badge {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e8f5e9;
+}
+
+.status-badge.warning {
+    background: #fff3e0;
+}
+
+.status-badge.critical {
+    background: #ffebee;
+}
+
+.metric-value {
+    margin-bottom: 1rem;
+}
+
+.percentage-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4CAF50;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.gap-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #f44336;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.metric-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.alert-footer {
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid #4CAF50;
+}
+
+.footer-message {
+    font-size: 0.95rem;
+    color: #2e7d32;
+    margin: 0 0 0.8rem 0;
+    font-weight: 500;
+}
+
+.footer-note {
+    font-size: 0.85rem;
+    color: #558b2f;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .alert-email-container {
+        padding: 1.5rem;
+    }
+
+    .email-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+    }
+
+    .metric-card {
+        padding: 1.2rem;
+    }
+
+    .percentage-value,
+    .gap-value {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .alert-email-container {
+        padding: 1rem;
+    }
+
+    .email-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-card {
+        padding: 1rem;
+    }
+
+    .percentage-value,
+    .gap-value {
+        font-size: 1.3rem;
+    }
+
+    .metric-description {
+        font-size: 0.8rem;
+    }
+}

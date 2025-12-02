@@ -333,9 +333,6 @@ body {
 
 /* Style général des bulles */
 .bubble {
-    background-size: cover; /* L'image remplit complètement le conteneur */
-    background-repeat: no-repeat; /* Empêche la répétition */
-    background-position: center; /* Centre l'image */
     color: #333;
     font-size: 1em;
     width: 670px;
@@ -346,11 +343,10 @@ body {
     position: absolute;
     transition: transform 0.3s ease;
     text-align: center;
-    color: #FFF;
     box-shadow: 0 0 10px rgba(244, 243, 243, 0.9);
-    font-size: 12px;
     border-radius: 5%;
-    z-index: 10; /* Réduire le z-index des bulles */
+    z-index: 10;
+    background: transparent;
 }
 
 .bubble.active {
@@ -361,26 +357,22 @@ body {
 .bubble1 {
     top: 2%;
     left: 5%;
-    background-image: url("../images/about1.png");
 }
 
 
 .bubble2 {
     top: 20%;
     right: 10%;
-    background-image: url("../images/about2.png");
 }
 
 .bubble3 {
     top: 40%;
     left: 10%;
-    background-image: url("../images/about3.png");
 }
 
 .bubble4 {
     top: 60%;
     right: 10%;
-    background-image: url("../images/about4.png");
 }
 
 .bubble-video {
@@ -436,14 +428,14 @@ body {
     position: relative;
     z-index: 3;
     font-family: 'Courier New', Courier, monospace;
-
 }
 
 .skills-title {
     color: #000;
     font-size: 5rem;
     padding-left: 30px;
-
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .skill-item-container {
@@ -459,7 +451,6 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
     position: relative;
-    
 }
 
 .skill-header {
@@ -477,6 +468,8 @@ body {
 .skill-title {
     font-size: 4em;
     margin: 0;
+    font-weight: 400;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .skill-details-container {
@@ -494,12 +487,14 @@ body {
     flex-direction: column;
     gap: 5px;
     margin: 0;
+    font-weight: 400;
 }
 
 .skill-detail-item {
     padding: 5px;
     border-radius: 3px;
     color: #555;
+    font-size: 0.95rem;
 }
 
 .skill-index {
@@ -515,8 +510,9 @@ body {
 .skill-footer {
     color: #FFF;
     margin-left: 100px;
-    font-family: "Nunito Sans";
+    font-family: 'Courier New', Courier, monospace;
     font-size: 2em;
+    font-weight: 300;
 }
 
 @media(max-width: 1420px) {

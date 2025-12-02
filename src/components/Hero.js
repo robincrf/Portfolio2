@@ -149,16 +149,15 @@ function Hero() {
             {imageVisible && (
                 <DelayedRender delay={1500}>
                     <div className="hero-image-container">
-                        <img src={`${process.env.PUBLIC_URL}/image/robin.png`} alt='cerisier' style={{ width: "500px" }} />
+                        <img src={`${process.env.PUBLIC_URL}/image/logo_robin.png`} alt='cerisier' style={{ width: "500px" }} />
                         <div className='hero-image-texte'>
                             <h2>CRIFO ROBIN</h2>
                             <div className='hero-image-list-container'>
                                 <p>Étudiant Ingénieur</p>
                                 <ul className='hero-image-list'>
-                                    <li>Developpement web</li>
-                                    <li>Programmation Orientée Objet</li>
                                     <li>Data Science & Machine Learning</li>
-                                    <li>Intéressé par le Biomédical</li>
+                                    <li>Programmation Orientée Objet</li>
+                                    <li>Developpement web</li>
                                 </ul>
                             </div>
                         </div>

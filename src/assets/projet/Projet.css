@@ -31,10 +31,43 @@
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.projet-presentation h1, .projet-presentation h2 {
+.projet-presentation h1 {
     font-family: 'Courier New', Courier, monospace;
-    color: var(--tech-violet);
- 
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.projet-presentation > p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-align: justify;
+    letter-spacing: 0.5px;
+}
+
+.contexte, .objectifs {
+    margin: 2.5rem 0;
+}
+
+.contexte h2, .objectifs h2 {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+}
+
+.contexte p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1rem;
+    text-align: justify;
+    letter-spacing: 0.5px;
+    margin-left: 1rem;
 }
 
 .projet-info h2 {
@@ -56,20 +89,24 @@
 .objectifs ul {
     list-style: none;
     padding: 0;
+    margin-left: 1rem;
 }
 
 .objectifs li {
     color: var(--text-secondary);
-    margin: 1rem 0;
+    margin: 1.2rem 0;
     padding-left: 1.5rem;
     position: relative;
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
 .objectifs li::before {
     content: '→';
     position: absolute;
     left: 0;
-    color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 .projet-images {
@@ -95,56 +132,15 @@
     }
 
     .projet-presentation {
-        padding: 4rem 1rem 1rem;
+        padding: 2rem 1rem 1rem;
     }
 
-    .projet-images {
-        order: -1;
-    }
-}
-
-.objectifs ul {
-    list-style: none;
-    padding: 0;
-}
-
-.objectifs li {
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.objectifs li:before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: #666;
-}
-
-.projet-images {
-    display: grid;
-    gap: 1rem;
-    align-content: start;
-}
-
-.projet-images img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.projet-images img:hover {
-    transform: scale(1.02);
-}
-
-@media (max-width: 768px) {
-    .projet-grid {
-        grid-template-columns: 1fr;
+    .projet-presentation h1 {
+        font-size: 2rem;
     }
 
-    .projet-presentation {
-        padding: 4rem 1rem 1rem;
+    .projet-presentation > p {
+        font-size: 0.95rem;
     }
 
     .projet-images {

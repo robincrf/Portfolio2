@@ -1,9 +1,10 @@
 import React from 'react';
+import CrifRobinCard from './CrifRobinCard';
 
 function FixedImage({ imageUrl }) {
     return (
         <div className="fixed-image">
-            <img src={imageUrl} alt="dynamique animation" className="image" />
+            <CrifRobinCard />
         </div>
     );
 }

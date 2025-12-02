@@ -7,8 +7,8 @@ function Navbar() {
     const location = useLocation();
 
     // Appliquez une classe différente si l'utilisateur est sur la page `cv`
-    const isParcoursPage = location.pathname === '/parcours' || 'projet1';
-    const navbarClass = isParcoursPage ? 'navbar cv-style' : 'navbar default-style';
+    const isCVPage = location.pathname === '/cv';
+    const navbarClass = isCVPage ? 'navbar cv-style' : 'navbar default-style';
 
     return (
         <DelayedRender delay={2000}>
@@ -18,7 +18,7 @@ function Navbar() {
                 </div>
                 <div className="navbar-typed">
                     <ReactTyped
-                        strings={['Bienvenue sur mon site', 'Explorez mon parcours', 'Découvrez mes projets']}
+                        strings={['Bienvenue sur mon site', 'Découvrez mes projets']}
                         typeSpeed={50}
                         backSpeed={30}
                         loop
@@ -27,7 +27,6 @@ function Navbar() {
                 <nav className="navbar-right">
                     <ul className="navbar-menu">
                         <li><Link to="/">Accueil</Link></li>
-                        <li><Link to="/parcours">Projets</Link></li>
                         <li><Link to="/cv">CV</Link></li>
                     </ul>
                 </nav>

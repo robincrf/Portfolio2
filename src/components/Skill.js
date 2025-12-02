@@ -5,6 +5,14 @@ function Skill() {
     const [activeSkill, setActiveSkill] = useState(null);
 
     const skills = {
+        Python: {
+            items: ['Data Science', 'SKlearn', 'Pytorch', 'TensorFlow'],
+            imageSrc: `${process.env.PUBLIC_URL}/image/python.jpeg`
+        },
+        'C / C++': {
+            items: ['Pointers', 'Memory Management', 'POO', 'Concurrency', 'Optimization'],
+            imageSrc: `${process.env.PUBLIC_URL}/image/cpp.png`
+        },
         React: {
             items: ['Hooks', 'Components', 'State Management', 'Routing'],
             imageSrc: `${process.env.PUBLIC_URL}/image/react.png`
@@ -13,24 +21,6 @@ function Skill() {
             items: ['Express', 'Middleware', 'REST APIs', 'WebSockets'],
             imageSrc: `${process.env.PUBLIC_URL}/image/node.webp`
         },
-        Python: {
-            items: ['Data Science', 'Panda', 'Scripting', 'Automation'],
-            imageSrc: `${process.env.PUBLIC_URL}/image/python.jpeg`
-        },
-        C: {
-            items: ['Pointers', 'Memory Management', 'Data Structures', 'Algorithms'],
-            imageSrc: `${process.env.PUBLIC_URL}/image/C.jpeg`
-        },
-        Cpp: {
-            items: ['Concurrency', 'ML', 'OOP', 'STL', "Performance Optimization"],
-            imageSrc: `${process.env.PUBLIC_URL}/image/cpp.png`
-        },
-            
-        PowerBI: {
-            items: ['Data Visualization', 'DAX', 'Power Query', 'Reports'],
-            imageSrc: `${process.env.PUBLIC_URL}/image/powerbi.jpeg`
-        }
-
     };
 
     const handleSkillClick = (skill) => {

@@ -42,11 +42,6 @@ function AppContent() {
         <Route path="projet2" element={<Projet2 />} />
         <Route path="projet3" element={<Projet3 />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/parcours" element={
-            <ImageProvider>
-                <AproposPage/>
-            </ImageProvider>
-        }   />
         <Route path="/cv" element={<CVPage />} />
       </Routes>
     </AnimatePresence>

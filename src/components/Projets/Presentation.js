@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import "../../assets/projet/Projet.css";
+import DataQualityTable from './DataQualityTable';
+import AlertEmail from './AlertEmail';
+import ECGResults from './ECGResults';
 
 const Presentation = ({ projet = {} }) => {
     if (!projet) return null;
@@ -12,6 +15,10 @@ const Presentation = ({ projet = {} }) => {
         objectifs = [],
         images = []
     } = projet;
+
+    // Check project types
+    const isDataQualityProject = titre.includes('Data Quality');
+    const isECGProject = titre.includes('anomalies cardiaques') || titre.includes('ECG');
 
     return (
         <motion.section 
@@ -40,19 +47,30 @@ const Presentation = ({ projet = {} }) => {
             )}
             {images.length > 0 && (
                 <div className="projet-images">
-                    {images.map((img, index) => (
-                        <img 
-                            key={index}
-                            src={img}
-                            alt={`${titre} aperçu ${index + 1}`}
-                        />
-                    ))}
+                    {images.map((img, index) => {
+                        // For ECG project
+                        if (isECGProject && index === 1) {
+                            return <ECGResults key={index} />;
+                        }
+                        // For data quality project
+                        if (isDataQualityProject && index === 0) {
+                            return <AlertEmail key={index} />;
+                        }
+                        if (isDataQualityProject && index === 1) {
+                            return <DataQualityTable key={index} />;
+                        }
+                        return (
+                            <img 
+                                key={index}
+                                src={img}
+                                alt={`${titre} aperçu ${index + 1}`}
+                            />
+                        );
+                    })}
                 </div>
             )}
         </motion.section>
     );
 };
-
-
 
 export default Presentation;

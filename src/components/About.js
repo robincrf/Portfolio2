@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Bubble1, Bubble2, Bubble3, Bubble4 } from './APropos/BubbleComponents';
 
 function About() {
     const bubblesRef = useRef([]);
@@ -100,7 +101,13 @@ function About() {
             <h2 className="about-title">À propos de moi</h2>
             <div className="bubbles-container">
                 {isReadyForBubbles &&
-                    ['', '', '', '', 'video'].map((type, index) =>
+                    [
+                        { component: <Bubble1 />, type: 'content' },
+                        { component: <Bubble2 />, type: 'content' },
+                        { component: <Bubble3 />, type: 'content' },
+                        { component: <Bubble4 />, type: 'content' },
+                        { component: null, type: 'video' }
+                    ].map(({ component, type }, index) =>
                         type === 'video' ? (
                             <motion.div
                                 key={index}
@@ -135,7 +142,9 @@ function About() {
                                 initial="hidden"
                                 animate={visibleBubbles.includes(index) ? 'visible' : 'exit'}
                                 variants={bubbleVariants(index % 2 === 0 ? 'left' : 'right')}
-                            />
+                            >
+                                {component}
+                            </motion.div>
                         )
                     )}
             </div>
