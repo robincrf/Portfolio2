@@ -45,9 +45,7 @@ body {
     align-items: flex-start;
     color: #000;
     z-index: 2;
-    height: 100vh; /* Force la hauteur à 100% de la fenêtre */
-    overflow: hidden; /* Empêche le défilement */
-    margin-bottom: 0; /* Supprime la marge du bas */
+    margin-bottom: 10%;
 }
 
 .hover-overlay {
@@ -80,10 +78,6 @@ body {
 .hero-content {
     position: relative;
     width: 100%;
-    height: 100%; /* Prend toute la hauteur */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     color: #000;
 }
 
@@ -130,10 +124,8 @@ body {
 /* Conteneur pour l'image en bas à gauche */
 .hero-image-container {
     width: 100%;
-    position: absolute;
-    bottom: 5%; /* Position depuis le bas */
-    left: 10%;
-    margin: 0;
+    position: relative;
+    margin-left: 10%;
     background-color: inherit; /* Change le fond en blanc */
     padding: 10px; /* Ajoute un espace autour de l'image */
     display: flex;
@@ -587,14 +579,6 @@ body {
         flex-direction: column;
         align-items: flex-start;
     }
-}
-
-/* Ajout pour empêcher le défilement du body quand le menu est ouvert */
-body.menu-open {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    height: 100%;
 }
 
 
