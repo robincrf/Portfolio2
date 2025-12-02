@@ -794,12 +794,73 @@
         font-size: 1.8rem;
     }
 
+    .projects-list-v3 {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+    }
+
     .project-category {
-        padding: 0.6rem;
+        width: fit-content;
+        padding: 0.5rem 1rem;
+        background: rgba(102, 126, 234, 0.08) !important;
+        border: 1.5px solid rgba(102, 126, 234, 0.25) !important;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-icon {
+        display: block;
+        font-size: 1.2rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .project-content {
+        display: block;
+        text-align: center;
+    }
+
+    .project-category-text {
+        font-size: 0.9rem;
+        color: white;
+        display: block;
+        margin: 0;
+    }
+
+    .project-description {
+        display: none;
     }
 
     .bubble-title-v4 {
         font-size: 1.5rem;
+    }
+
+    .education-list-v4 {
+        align-items: center;
+    }
+
+    .education-item-simple {
+        width: fit-content;
+        justify-content: center;
+    }
+
+    .education-item-simple div {
+        text-align: center;
+    }
+
+    .education-title-v4 {
+        font-size: 0.9rem;
+        color: white;
+        margin: 0;
+    }
+
+    .education-school-v4 {
+        display: none;
+    }
+
+    .education-duration-v4 {
+        display: none;
     }
 }
 
