@@ -6,11 +6,11 @@ function Skill() {
 
     const skills = {
         Python: {
-            items: ['Data Science', 'SKlearn', 'Pytorch', 'TensorFlow'],
+            items: ['Data Science', 'scikit-learn', 'TensorFlow', 'PyTorch'],
             imageSrc: `${process.env.PUBLIC_URL}/image/python.jpeg`
         },
         'C / C++': {
-            items: ['Pointers', 'Memory Management', 'POO', 'Concurrency', 'Optimization'],
+            items: ['Pointers', 'Memory Management', 'Algorithms', 'Concurrency', 'OOP', 'Optimization'],
             imageSrc: `${process.env.PUBLIC_URL}/image/cpp.png`
         },
         React: {
@@ -20,7 +20,7 @@ function Skill() {
         NodeJs: {
             items: ['Express', 'Middleware', 'REST APIs', 'WebSockets'],
             imageSrc: `${process.env.PUBLIC_URL}/image/node.webp`
-        },
+        }
     };
 
     const handleSkillClick = (skill) => {

@@ -8,6 +8,37 @@
     text-align: center;
     border-radius: 5%;
     color: #1a1a1a;
+    animation: fadeInSlideUp 0.8s ease-out;
+}
+
+/* ===== MICRO-ANIMATIONS POUR LES BULLES ===== */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes softGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+    }
+}
+
+@keyframes subtlePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
 }
 
 /* ========================================
@@ -93,8 +124,8 @@
 .contact-icon-v1:hover {
     background: #edf2f7;
     border-color: #a0aec0;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px) rotate(8deg) scale(1.1);
+    box-shadow: 0 10px 28px rgba(102, 126, 234, 0.25);
 }
 
 .contact-icon-v1 svg {
@@ -158,8 +189,13 @@
     border-radius: 30%;
     object-fit: contain;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: fadeInSlideUp 0.8s ease-out 0.2s both;
+}
 
+.logo-v2:hover {
+    transform: scale(1.12) rotate(-8deg);
+    filter: drop-shadow(0 8px 20px rgba(255, 255, 255, 0.4));
 }
 
 
@@ -168,12 +204,13 @@
     font-size: 2rem;
     font-weight: 700;
     color: white;
-    margin: 0 0 1rem;
-    font-family: 'Courier New', Courier, monospace;
-    letter-spacing: 1px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 1;
+    animation: fadeInSlideUp 0.8s ease-out 0.4s both;
+    letter-spacing: 1px;
+    margin: 0 0 1rem;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .team-text-v2 {
@@ -730,5 +767,121 @@
     .contact-icon-v1 svg {
         width: 18px;
         height: 18px;
+    }
+}
+
+/* ===== RESPONSIVE AMÉLIORÉ ===== */
+
+@media (max-width: 1024px) {
+    .name-v1 {
+        font-size: 2rem;
+    }
+
+    .logo-v2 {
+        height: 100px;
+        width: 100px;
+    }
+
+    .bubble-title-v2 {
+        font-size: 1.6rem;
+    }
+
+    .team-text-v2 {
+        font-size: 0.95rem;
+    }
+
+    .bubble-title-v3 {
+        font-size: 1.8rem;
+    }
+
+    .project-category {
+        padding: 0.6rem;
+    }
+
+    .bubble-title-v4 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .name-v1 {
+        font-size: 1.1rem;
+    }
+
+    .role-v1 {
+        font-size: 0.75rem;
+    }
+
+    .bio-v1 {
+        font-size: 0.65rem;
+    }
+
+    .logo-v2 {
+        height: 70px;
+        width: 70px;
+    }
+
+    .logos-container-v2 {
+        margin-bottom: 1rem;
+    }
+
+    .bubble-title-v2 {
+        font-size: 1rem;
+    }
+
+    .team-text-v2 {
+        font-size: 0.75rem;
+        max-width: 200px;
+    }
+
+    .bubble-title-v3 {
+        font-size: 1.1rem;
+    }
+
+    .project-icon {
+        font-size: 1.1rem;
+    }
+
+    .project-category-text {
+        font-size: 0.7rem;
+    }
+
+    .project-description {
+        font-size: 0.6rem;
+    }
+
+    .bubble-title-v4 {
+        font-size: 1rem;
+    }
+
+    .school-logo-v4 {
+        height: 30px;
+    }
+
+    .education-title-v4 {
+        font-size: 0.75rem;
+    }
+
+    .education-school-v4 {
+        font-size: 0.65rem;
+    }
+
+    .education-duration-v4 {
+        font-size: 0.6rem;
+    }
+
+    .contact-icon-v1 {
+        width: 32px;
+        height: 32px;
+    }
+
+    .contact-icon-v1 svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Masquer les images de bubble 4 en petit écran */
+    .school-logo-corner {
+        display: none;
     }
 }

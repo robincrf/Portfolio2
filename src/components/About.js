@@ -8,32 +8,16 @@ function About() {
     const [isReadyForBubbles, setIsReadyForBubbles] = useState(false);
 
     useEffect(() => {
-        const bubbles = bubblesRef.current; // Stocker la référence dans une variable locale
-        if (!bubbles) return;
+        // Attendre que le hero-section soit complètement affiché (animations terminées)
+        // Délai de 2.5 secondes pour laisser plus de temps au hero
+        const heroDisplayDelay = 2500; // 2.5 secondes
 
-        // Configuration des bulles
-        const bubblesConfig = {
-            threshold: 0.5,
-        };
-
-        // Initialisation des bulles
-        const initBubbles = () => {
+        const timer = setTimeout(() => {
             setIsReadyForBubbles(true);
-        };
+        }, heroDisplayDelay);
 
-        initBubbles();
-
-        // Cleanup function utilisant la variable locale
-        return () => {
-            if (bubbles) {
-                bubbles.forEach((bubble) => {
-                    if (bubble) {
-                        bubblesConfig.unobserve(bubble);
-                    }
-                });
-            }
-        };
-    }, []); // La dépendance reste vide car on capture la ref au début de l'effet
+        return () => clearTimeout(timer);
+    }, []);
 
     useEffect(() => {
         if (!isReadyForBubbles) return;
@@ -52,9 +36,9 @@ function About() {
                         }
                         return prev;
                     });
-                } else {
-                    setVisibleBubbles((prev) => prev.filter((i) => i !== index));
                 }
+                // Removed: else block that was removing bubbles when not intersecting
+                // Les bulles restent visibles une fois affichées
             });
         }, observerOptions);
 
@@ -73,17 +57,20 @@ function About() {
         };
     }, [isReadyForBubbles]);
 
-    const bubbleVariants = (direction) => ({
+    const bubbleVariants = (direction, index) => ({
         hidden: {
             opacity: 0,
             x: direction === 'left' ? -100 : 100,
+            y: 20,
         },
         visible: {
             opacity: 1,
             x: 0,
+            y: 0,
             transition: {
-                duration: 0.7,
+                duration: 0.8,
                 ease: 'easeOut',
+                delay: index * 0.15, // Stagger entre les bulles (150ms)
             },
         },
         exit: {
@@ -141,7 +128,7 @@ function About() {
                                 ref={(el) => (bubblesRef.current[index] = el)}
                                 initial="hidden"
                                 animate={visibleBubbles.includes(index) ? 'visible' : 'exit'}
-                                variants={bubbleVariants(index % 2 === 0 ? 'left' : 'right')}
+                                variants={bubbleVariants(index % 2 === 0 ? 'left' : 'right', index)}
                             >
                                 {component}
                             </motion.div>

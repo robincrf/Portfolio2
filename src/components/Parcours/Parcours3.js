@@ -1,53 +1,67 @@
 import React from 'react';
-function Parcours2() {
+
+function Parcours3() {
     return (
         <div className="parcours-container">
             <div className="parcours-content">
                 <div className="parcours-text">
 
+                    {/* --- Bloc 1 : Compétences Techniques --- */}
                     <div className="parcours-section">
                         <div className='parcours-section-text'>
-                            <h3>Compétences techniques WEB</h3>
+                            <h3>Compétences Techniques</h3>
                             <p>
-                                Formation autonome en web design et développement web, intégration de framework et API. <br />
-                                Maitrise des outils (React JS, VueJs, NodeJs) connaissances en cybersécurité appliquée au web et protocoles réseaux. <br/>
-                                3 projets de développement web réalisés : <br/>(Portfolio, site e-commerce, Chatbot IA ). <br />
+                                Maîtrise des langages bas niveau (C, C++, VHDL) appliqués à la modélisation,
+                                l’optimisation algorithmique et le traitement du signal. <br/>
+
+                                Expérience en intelligence artificielle et data science : prétraitement de signaux, 
+                                extraction de caractéristiques, conception de réseaux neuronaux (CNN) pour la détection d’anomalies. <br/>
+                                projet en système et programmation embarqué, réseau Lora et solution IOT.
 
                             </p>
                         </div>
+
                         <div className='parcours-section-add'>
                             <ul className='list-stage-img'>
-                                <img src={`${process.env.PUBLIC_URL}/image/react.png`} alt="react"/>
-                                <img src={`${process.env.PUBLIC_URL}/image/vue.jpeg`} alt="vue"/>
-                                <img src={`${process.env.PUBLIC_URL}/image/node.webp`} alt="node"/>
+                                <img src={`${process.env.PUBLIC_URL}/image/biomed.jpeg`} alt="AES"/>
+                                <img src={`${process.env.PUBLIC_URL}/image/cpp.png`} alt="C++"/>
+                                <img src={`${process.env.PUBLIC_URL}/image/pytorch.jpeg`} alt="rootme"/>
                             </ul>
                         </div>
                     </div>
 
+                    {/* --- Bloc 2 : Projets réalisés --- */}
                     <div className="parcours-section">
                         <div className='parcours-section-text'>
-                            <h3>Compétences </h3>
-                            <ul className="skills-list">
-                                <li>Cryptographie de base (AES, SHA-256, RSA, ASCON)</li>
-                                <li>Langage bas niveau (C, C++, VHDL), 3 projets réalisés : </li>
-                                <li>1 - Simulation d'une file d'attente et optimisation de la prise en charge des clients (C) </li>
-                                <li>2 - Chiffrement ASCON (VHDL)</li>
-                                <li>3 - Détection d'anomalie cardiaque à l'aide de signaux(C++)</li>                          
-                                <li>Système embarqué : Création d'un capteur d'apnée du sommeil à l'aie d'un circuit conditionneur</li>
-                            </ul>
+                            <h3>Projets réalisés</h3>
+                            <p>
+                                <b>Prédiction du cours de bourse (ML, Python)</b> <br/> - Développement d’une IA de modélisation de marché basée sur NLP et réseaux neuronaux. Stack : Python, PyTorch/TensorFlow, pipelines NLP et backtesting.<br/>
+
+                                <b>Implémentation du chiffrement ASCON en VHDL</b><br/> — Réalisation d’un module matériel conforme
+                                aux spécifications NIST pour le chiffrement léger. <br/>
+
+                                <b>Détection d’anomalies cardiaques (C++)</b> <br/> — Nettoyage des signaux ECG, extraction de features
+                                et création d’un CNN pour la classification d’arythmies. <br/>
+
+                                <b>Capteur d’apnée du sommeil</b> <br/> — Conception électronique, acquisition de signaux physiologiques
+                                et traitement embarqué pour la détection d’événements respiratoires.
+                            </p>
                         </div>
+
                         <div className='parcours-section-add'>
                             <ul className='list-stage-img'>
-                                <img src={`${process.env.PUBLIC_URL}/image/AES.png`} alt="ux"/>
-                                <img src={`${process.env.PUBLIC_URL}/image/cpp.png`} alt="stripe"/>
-                                <img src={`${process.env.PUBLIC_URL}/image/rootme.jpeg`} alt="rootme"/>
+                                {/* Images conservées telles qu’à l’origine */}
+                                <img src={`${process.env.PUBLIC_URL}/image/AES.png`} alt="AES"/>
+                                <img src={`${process.env.PUBLIC_URL}/image/capteur.jpeg`} alt="C++"/>
+                                <img src={`${process.env.PUBLIC_URL}/image/ascon.jpeg`} alt="rootme"/>
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     );
 }
 
-export default Parcours2;
+export default Parcours3;

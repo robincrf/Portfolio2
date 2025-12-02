@@ -3,6 +3,7 @@ import Parcours1 from '../components/Parcours/Parcours1';
 import Parcours2 from '../components/Parcours/Parcours2';
 import Parcours3 from '../components/Parcours/Parcours3';
 import Navbar from '../components/Navbar';
+import '../assets/parcours.css';
 
 const CVPage = () => {
     const slides = [
