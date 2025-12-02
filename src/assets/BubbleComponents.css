@@ -377,6 +377,43 @@
     z-index: 1;
 }
 
+.projects-simple-text {
+    display: block;
+    font-size: 1.1rem;
+    color: white;
+    text-align: center;
+    line-height: 1.8;
+    padding: 2rem 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.projects-tech-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.tech-logo {
+    width: 40px;
+    height: 40px;
+    color: white;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tech-logo:hover {
+    opacity: 1;
+    transform: scale(1.15) rotate(8deg);
+}
+
 .projects-list-v3 {
     display: flex;
     flex-direction: column;
@@ -851,16 +888,39 @@
 
     .education-title-v4 {
         font-size: 0.9rem;
-        color: white;
         margin: 0;
     }
 
     .education-school-v4 {
-        display: none;
+        display: block;
     }
 
     .education-duration-v4 {
         display: none;
+    }
+}
+
+@media (max-width: 565px) {
+    .projects-header-v3 {
+        display: none;
+    }
+
+    .projects-list-v3 {
+        display: none;
+    }
+
+    .projects-simple-text {
+        display: block !important;
+        font-size: 1rem;
+        color: white;
+        text-align: center;
+        line-height: 1.6;
+        padding: 1.5rem;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 400;
+        margin: 0;
+        position: relative;
+        z-index: 1;
     }
 }
 

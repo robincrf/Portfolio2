@@ -94,30 +94,25 @@ export const Bubble3 = () => {
                 <p className="projects-subtitle">Explorez mes réalisations</p>
             </div>
             
-            <div className="projects-list-v3">
-                <div className="project-category enhanced">
-                    <div className="project-icon">⚙️</div>
-                    <div className="project-content">
-                        <p className="project-category-text">IA & Machine Learning</p>
-                        <p className="project-description">Algorithmes et modèles</p>
-                    </div>
-                </div>
-                
-                <div className="project-category enhanced">
-                    <div className="project-icon">🫀</div>
-                    <div className="project-content">
-                        <p className="project-category-text">IA Biomédicale</p>
-                        <p className="project-description">Applications médicales</p>
-                    </div>
-                </div>
-                
-                <div className="project-category enhanced">
-                    <div className="project-icon">📊</div>
-                    <div className="project-content">
-                        <p className="project-category-text">ML & Data Science</p>
-                        <p className="project-description">Analyse et insights</p>
-                    </div>
-                </div>
+            <div className="projects-simple-text">
+                Je travaille sur plusieurs projets autour de l'IA, d'applications biomédicales et capteurs embarqués
+            </div>
+            
+            <div className="projects-tech-logos">
+                <svg className="tech-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                    <path d="M12 6v6h4"/>
+                </svg>
+                <svg className="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <svg className="tech-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6m0 0v6m0-6h-6m0 0h6"/>
+                </svg>
+                <svg className="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
             </div>
         </div>
     );
