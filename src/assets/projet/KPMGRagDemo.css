@@ -1,0 +1,259 @@
+/* KPMG RAG Demo Container */
+.kpmg-rag-container {
+    background: #0f172a;
+    /* Dark slate blue/black */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #e2e8f0;
+    overflow: hidden;
+    margin: 2rem auto;
+    max-width: 800px;
+    border: 1px solid #1e293b;
+}
+
+/* Header */
+.rag-header {
+    background: #1e293b;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #334155;
+}
+
+.rag-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #60a5fa;
+    /* Blue-400 */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rag-status {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+/* Demo Interface */
+.rag-interface {
+    padding: 1.5rem;
+}
+
+/* Query Input Simulation */
+.rag-input-section {
+    margin-bottom: 2rem;
+}
+
+.query-box {
+    background: #000000;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-family: 'Consolas', monospace;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.prompt-char {
+    color: #22c55e;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background: #e2e8f0;
+    animation: blink 1s step-end infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Pipeline Visualization */
+.rag-pipeline-viz {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.rag-pipeline-viz::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 40px;
+    right: 40px;
+    height: 2px;
+    background: #334155;
+    z-index: 0;
+}
+
+.pipeline-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 80px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    background: #0f172a;
+    /* Hide line behind text */
+}
+
+.step-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #1e293b;
+    border: 2px solid #475569;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.pipeline-step.active .step-icon {
+    border-color: #60a5fa;
+    background: #1e3a8a;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
+    transform: scale(1.1);
+}
+
+.pipeline-step.completed .step-icon {
+    border-color: #22c55e;
+    color: #22c55e;
+}
+
+/* Console/Logs Area */
+.rag-logs-console {
+    background: #1e1e1e;
+    border-radius: 6px;
+    padding: 10px;
+    height: 120px;
+    overflow-y: auto;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    border: 1px solid #333;
+    margin-bottom: 1.5rem;
+}
+
+.log-entry {
+    margin-bottom: 4px;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+.log-entry.info {
+    color: #60a5fa;
+}
+
+.log-entry.success {
+    color: #22c55e;
+}
+
+.log-entry.process {
+    color: #fbbf24;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Result Area */
+.rag-result {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 1.2rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+}
+
+.rag-result.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 0.5rem;
+}
+
+.result-header h4 {
+    margin: 0;
+    color: #c084fc;
+    /* Purple */
+    font-size: 0.9rem;
+}
+
+.llm-badge {
+    background: #4c1d95;
+    color: #e9d5ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.answer-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+.citation {
+    display: inline-block;
+    background: #14532d;
+    color: #86efac;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-left: 6px;
+    cursor: help;
+    border: 1px solid #166534;
+}
+
+.citation:hover {
+    background: #166534;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .rag-pipeline-viz {
+        display: none;
+        /* Hide complex viz on mobile, logs/result are enough */
+    }
+}

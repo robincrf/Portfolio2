@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import AcceuilPage from "./Page/AcceuilPage";
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import "./assets/style.css"
@@ -8,25 +8,26 @@ import "./assets/apropos.css"
 import Projet1 from "./Page/Projets/Projet1";
 import Projet2 from "./Page/Projets/Projet2";
 import Projet3 from "./Page/Projets/Projet3";
+import Projet5 from "./Page/Projets/Projet5";
 import CVPage from "./Page/CVPage";
 import { ImageProvider } from './context/ImageContext';
 import { AnimatePresence } from 'framer-motion';
 import NotFound from './Page/404';
 
 function RedirectHandler() {
-    const location = useLocation();
-    const navigate = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const params = new URLSearchParams(location.search);
-        const redirect = params.get("redirect");
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const redirect = params.get("redirect");
 
-        if (redirect) {
-            navigate(redirect, { replace: true });
-        }
-    }, [location, navigate]);
+    if (redirect) {
+      navigate(redirect, { replace: true });
+    }
+  }, [location, navigate]);
 
-    return null;
+  return null;
 }
 
 function AppContent() {
@@ -40,6 +41,7 @@ function AppContent() {
         <Route path="projet1" element={<Projet1 />} />
         <Route path="projet2" element={<Projet2 />} />
         <Route path="projet3" element={<Projet3 />} />
+        <Route path="projet5" element={<Projet5 />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
@@ -47,14 +49,14 @@ function AppContent() {
 }
 
 function App() {
-    return (
-        <BrowserRouter basename="/Portfolio2">
-            <ImageProvider>
-                <RedirectHandler />
-                <AppContent />
-            </ImageProvider>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter basename="/Portfolio2">
+      <ImageProvider>
+        <RedirectHandler />
+        <AppContent />
+      </ImageProvider>
+    </BrowserRouter>
+  );
 }
 
 export default App;

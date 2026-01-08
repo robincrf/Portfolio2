@@ -12,6 +12,10 @@
     width: 100%;
 }
 
+.navbar-typed {
+    color: #000;
+}
+
 .navbar-left {
     display: flex;
     align-items: center;
@@ -46,12 +50,14 @@
 
 /* Style par défaut pour les deux premières pages */
 .default-style .navbar-menu li a {
-    color: #000; /* Couleur pour Accueil et Parcours */
+    color: #000;
+    /* Couleur pour Accueil et Parcours */
 }
 
 /* Style spécial pour la page CV */
 .cv-style .navbar-menu li a {
-    color: #343333; /* Couleur pour la page CV */
+    color: #343333;
+    /* Couleur pour la page CV */
 }
 
 .navbar-menu li a:hover {
@@ -60,13 +66,15 @@
 
 @media (max-width: 768px) {
     .navbar-typed {
-        font-size: 0.8rem; /* Réduire la taille de la police */
+        font-size: 0.8rem;
+        /* Réduire la taille de la police */
     }
 }
 
 @media (max-width: 468px) {
     .navbar-typed {
-        font-size: 0.4rem; /* Réduire la taille de la police */
+        font-size: 0.4rem;
+        /* Réduire la taille de la police */
     }
 }
 

@@ -1,5 +1,5 @@
 export const projetsData = {
-    projet1: {
+  projet1: {
     titre: "Détection intelligente d’anomalies cardiaques (C++)",
     technologies: {
       "C++17": "Implémentation performante temps réel",
@@ -24,7 +24,7 @@ export const projetsData = {
       `${process.env.PUBLIC_URL}/image/ecg_prediction.png`
     ]
   },
-    projet2: {
+  projet2: {
     titre: "Implémentation de l’algorithme cryptographique ASCON-256 (VHDL)",
     technologies: {
       SystemVerilog: "Langage de description matériel pour la simulation du chiffrement",
@@ -46,31 +46,29 @@ export const projetsData = {
     ]
   },
   projet3: {
-  titre: "Pipeline Data Quality automatisé (Décathlon)",
-  technologies: {
-    Python: "Langage principal pour l’orchestration et les règles",
-    "Great Expectations": "Validation des données selon 7 normes de qualité",
-    Pandas: "Chargement, profiling et transformations du fichier",
-    "SMTP (email)": "Notification automatique des écarts et rapports",
-    Docker: "Environnements reproductibles pour l’exécution",
-    GitHub: "CI/CD et suivi de version du référentiel"
+    titre: "Pipeline Data Quality automatisé (Décathlon)",
+    technologies: {
+      Python: "Langage principal pour l’orchestration et les règles",
+      "Great Expectations": "Validation des données selon 7 normes de qualité",
+      Pandas: "Chargement, profiling et transformations du fichier",
+      "SMTP (email)": "Notification automatique des écarts et rapports",
+      GitHub: "CI/CD et suivi de version du référentiel"
+    },
+    description:
+      "Mise en place d’un pipeline automatisé de contrôle qualité des données issues de fichier volumineux de Décathlon. Les règles sont définies avec Great Expectations et couvrent 7 dimensions de data quality. À chaque exécution, un rapport est généré et envoyé par email (SMTP) avec les métriques, les tests échoués et les recommandations.",
+    contexte: "Projet personnel — data engineering & gouvernance de données",
+    objectifs: [
+      "Couvrir les 7 normes de data quality : complétude, exactitude, validité, unicité, cohérence, intégrité référentielle, fraîcheur",
+      "Définir un catalogue d’expectations : schéma, types, bornes, regex, clés primaires/doublons, référentiels",
+      "Générer automatiquement un rapport HTML/JSON (Great Expectations Data Docs)",
+      "Notifier par email (SMTP) en cas d’échec avec pièces jointes (rapport + échantillon d’erreurs)",
+      "Orchestration planifiée (cron) et relance sur incident",
+      "Traçabilité : logs, métriques et historisation des exécutions"
+    ],
+    images: [
+      `${process.env.PUBLIC_URL}/image/mail_dq.png`
+    ]
   },
-  description:
-    "Mise en place d’un pipeline automatisé de contrôle qualité des données issues de fichier volumineux de Décathlon. Les règles sont définies avec Great Expectations et couvrent 7 dimensions de data quality. À chaque exécution, un rapport est généré et envoyé par email (SMTP) avec les métriques, les tests échoués et les recommandations.",
-  contexte: "Projet personnel — data engineering & gouvernance de données",
-  objectifs: [
-    "Couvrir les 7 normes de data quality : complétude, exactitude, validité, unicité, cohérence, intégrité référentielle, fraîcheur",
-    "Définir un catalogue d’expectations : schéma, types, bornes, regex, clés primaires/doublons, référentiels",
-    "Générer automatiquement un rapport HTML/JSON (Great Expectations Data Docs)",
-    "Notifier par email (SMTP) en cas d’échec avec pièces jointes (rapport + échantillon d’erreurs)",
-    "Orchestration planifiée (cron) et relance sur incident",
-    "Traçabilité : logs, métriques et historisation des exécutions"
-  ],
-  images: [
-    `${process.env.PUBLIC_URL}/image/mail_dq.png`,
-    `${process.env.PUBLIC_URL}/image/resultat_dq.png`
-  ]
-},
   projet4: {
     titre: "Portfolio moderne",
     technologies: {
@@ -97,5 +95,30 @@ export const projetsData = {
       `${process.env.PUBLIC_URL}/image/projet1/screen2.png`
     ]
   },
+  projet5: {
+    titre: "Système RAG de Veille Stratégique (KPMG)",
+    technologies: {
+      Python: "Orchestration du pipeline RAG et ingestion des données",
+      LangChain: "Framework pour le chaînage des composants (Embeddings, Pinecone, LLM)",
+      Pinecone: "Base de données vectorielle serverless (namespaces isolés)",
+      "Mistral AI": "Modèle de langage (Mistral Medium) et Embeddings (1024 dim)",
+      "yfinance / NewsAPI": "Flux de données financiers et actualités en temps réel",
+      Gradio: "Interface de démonstration interactive pour les analystes"
+    },
+    description:
+      "🔍 Conception d'un système RAG (Retrieval-Augmented Generation) pour automatiser la veille concurrentielle du KPMG Global Strategy Group. Le système ingère des rapports financiers (SEC 10-K), des news et des données de marché, les indexe dans Pinecone avec une isolation par namespace, et utilise Mistral Medium pour générer des analyses sourcées et fiables. L'objectif est de réduire de 60% le temps de recherche des analystes tout en garantissant la traçabilité de l'information (citations obligatoires).",
+    contexte: "Hackathon KPMG — 1er Prix (Innovation & Stratégie)",
+    objectifs: [
+      "Pipeline d'ingestion multi-sources : SEC EDGAR, NewsAPI, yfinance, PDFs",
+      "Architecture RAG avancée : Chunking adaptatif, Embeddings Mistral, Retriever hybride",
+      "Fact-checking rigoureux : Prompt engineering imposant des citations (Source | Fiabilité | Date)",
+      "Interface analyste : Chatbot capable de comparer des données cross-namespaces (ex: News vs Finance)",
+      "Architecture Scalable : Pinecone Serverless + LangChain LCEL"
+    ],
+    images: [
+      `${process.env.PUBLIC_URL}/image/kpmg_rag_demo.png`
+      // Placeholder for the interactive component
+    ]
+  }
 };
-    // Ajouter les autres projets ici
+// Ajouter les autres projets ici

@@ -55,12 +55,35 @@
     height: 100%;
     padding: 0 5%;
     align-items: center;
+    /* Ensure section doesn't overflow vertically if content is huge, though text should scroll */
+    max-height: 90vh;
 }
 
 .parcours-section-text {
     flex: 0 0 60%;
     overflow-y: auto;
     padding: 0.8rem;
+    padding-bottom: 3rem;
+    /* Add bottom breathing room */
+    /* Critical: Ensure text doesn't flow off screen */
+    max-height: 80vh;
+    /* Limit height to prevent touching bottom edge */
+    scrollbar-width: thin;
+    /* Firefox */
+}
+
+/* Scrollbar webkit support */
+.parcours-section-text::-webkit-scrollbar {
+    width: 6px;
+}
+
+.parcours-section-text::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.parcours-section-text::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
 }
 
 .parcours-images {
@@ -74,57 +97,65 @@
 /* Styles de texte */
 .parcours-text {
     color: var(--text-dark);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Modern sans-serif */
 }
 
-.parcours-text h2 { 
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    margin-bottom: 1.2rem;
+.parcours-text h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    margin-bottom: 0.8rem;
     color: var(--text-dark);
 }
 
-.parcours-text h3 { 
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    margin-bottom: 0.8rem;
+.parcours-text h3 {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    margin-bottom: 0.4rem;
     font-weight: 700;
     color: var(--text-dark);
-    font-family: 'Courier New', Courier, monospace;
-    letter-spacing: 1px;
+    /* Removed Courier New */
+    letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
-.parcours-text p, 
-.parcours-text li { 
-    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
-    line-height: 1.8;
-    margin-bottom: 0.7rem;
+.parcours-text p,
+.parcours-text li {
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
     color: var(--text-light);
+    text-align: justify;
+    /* Justify text */
 }
 
 .skills-list {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
 }
 
 .skills-list li {
-    padding: 0.8rem 0;
+    padding: 0.3rem 0;
     margin: 0;
-    font-size: clamp(1rem, 1.5vw, 1.2rem);
-    line-height: 1.8;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    line-height: 1.4;
     color: var(--text-light);
 }
 
 .skills-sublist {
     list-style: none;
-    padding: 0.8rem 0 0.8rem 2rem;
-    margin: 0.5rem 0 0 0;
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    margin: 0.2rem 0 0 0;
 }
 
 .skills-sublist li {
-    padding: 0.4rem 0;
+    padding: 0.2rem 0;
     margin: 0;
-    font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-    line-height: 1.5;
+    font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+    line-height: 1.3;
     color: var(--text-light);
 }
 
@@ -219,12 +250,14 @@
 
 /* Ajustement pour 3 images */
 .list-stage-img:has(> img:nth-child(3)) img {
-    width: 150px;  /* Réduit de 30px par rapport aux 100px initiaux */
+    width: 150px;
+    /* Réduit de 30px par rapport aux 100px initiaux */
     height: 150px;
 }
 
 .parcours-section-add:has(> img:nth-child(3)) img {
-    width: 150px;  /* Réduit de 30px par rapport aux 180px initiaux */
+    width: 150px;
+    /* Réduit de 30px par rapport aux 180px initiaux */
 }
 
 .parcours-images:has(> .parcours-image:nth-child(3)) .parcours-image {
@@ -238,7 +271,8 @@
         overflow-x: hidden;
         overflow-y: auto;
         height: auto;
-        scroll-snap-type: y proximity; /* Même changement pour le mode vertical */
+        scroll-snap-type: y proximity;
+        /* Même changement pour le mode vertical */
     }
 
     .scroll-slide {
@@ -246,20 +280,37 @@
         min-height: 100vh;
         height: auto;
         width: 100%;
-        scroll-snap-align: center; /* Changé à center */
+        scroll-snap-align: center;
+        /* Changé à center */
         overflow-y: visible;
+        padding-top: 80px;
+        /* Space for navbar */
     }
 
     .parcours-section {
+        flex-direction: column-reverse;
+        /* Text on top or bottom? User wants text readable */
+        /* Let's keep column standard: text then images or images then text */
+        /* If we want text to not overflow screen, better to have it stack cleanly */
         flex-direction: column;
         height: auto;
         overflow: visible;
+        max-height: none;
+        /* remove height constraint on mobile flow */
     }
 
     .parcours-section-text,
     .parcours-images {
         width: 100%;
         overflow: visible;
+        flex: none;
+        /* Disable flex-basis lock */
+    }
+
+    .parcours-section-text {
+        max-height: 60vh;
+        /* Limit text height on mobile so it scrolls if massive */
+        overflow-y: auto;
     }
 
     .parcours-images {
@@ -267,6 +318,7 @@
         flex-wrap: wrap;
         justify-content: center;
         padding: 1rem;
+        margin-top: 1rem;
     }
 
     /* Ajuster les tailles des images pour mobile */
@@ -281,16 +333,21 @@
 }
 
 @media (max-width: 768px) {
+
     /* ...existing code... */
-    
+    .parcours-section-text h3 {
+        font-size: 1.3rem;
+        /* Slightly smaller */
+    }
+
     .parcours-image {
         width: 60%;
         max-width: 200px;
     }
 
     .list-stage-img img {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
 
     .parcours-section-add img {
@@ -300,8 +357,8 @@
 
     /* Ajustement pour 3 images en mobile */
     .list-stage-img:has(> img:nth-child(3)) img {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
     }
 
     .parcours-section-add:has(> img:nth-child(3)) img {
@@ -346,7 +403,7 @@
 
     /* Réduire les margins à gauche sur petit écran */
     .parcours-section {
-        padding: 0;
+        padding: 0 1rem;
     }
 
     .parcours-text h2 {

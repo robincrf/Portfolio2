@@ -7,11 +7,15 @@ function ProjetNavigation({ currentProjet }) {
         { id: 1, name: 'ECG C++', path: '/projet1' },
         { id: 2, name: 'ASCON', path: '/projet2' },
         { id: 3, name: 'Pipeline DQ', path: '/projet3' },
+        { id: 5, name: 'KPMG RAG', path: '/projet5' },
     ];
 
     return (
         <nav className="projet-navigation">
             <div className="projet-nav-container">
+                <Link to="/" className="projet-nav-link">
+                    Accueil
+                </Link>
                 {projets.map((projet) => (
                     <Link
                         key={projet.id}

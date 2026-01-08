@@ -2,136 +2,76 @@ import React from 'react';
 import '../../assets/projet/ECGResults.css';
 
 const ECGResults = () => {
+    // Simulation de logs C++ / Deep Learning
     const logs = [
-        { type: 'INFO', message: 'Loading ECG signal from: ecg_data/patient_07.csv' },
-        { type: 'INFO', message: 'Signal length: 5000 samples | Sampling rate: 360 Hz' },
-        { type: 'INFO', message: 'Starting preprocessing...' }
-    ];
-
-    const preprocessing = [
-        { type: 'OK', message: 'Band-pass filter applied (5-15 Hz)' },
-        { type: 'OK', message: 'Baseline wander removed' },
-        { type: 'OK', message: 'Derivative + Squaring + Moving window integration completed' },
-        { type: 'INFO', message: 'Detecting R-peaks...' }
-    ];
-
-    const rPeaks = [
-        { time: 0.82, amplitude: 1.84 },
-        { time: 1.60, amplitude: 1.91 },
-        { time: 2.42, amplitude: 1.87 },
-        { time: 3.21, amplitude: 1.80 },
-        { time: 4.03, amplitude: 1.89 }
-    ];
-
-    const predictions = [
-        { beat: 1, type: 'Normal Sinus Rhythm', warning: false },
-        { beat: 2, type: 'Extrasystole Ventriculaire', warning: true },
-        { beat: 3, type: 'Normal Sinus Rhythm', warning: false },
-        { beat: 4, type: 'Normal Sinus Rhythm', warning: false },
-        { beat: 5, type: 'Atrial Fibrillation', warning: true }
+        { time: '00:00:00', level: 'INFO', msg: 'Init. Système: Threads CPU=8, Mémoire=16Go' },
+        { time: '00:00:01', level: 'INFO', msg: 'Chargement modèle: "ecg_net_v2.onnx" (FP16)' },
+        { time: '00:00:02', level: 'SUCCESS', msg: 'Modèle chargé en 14ms' },
+        { time: '00:00:02', level: 'DEBUG', msg: 'Allocation tenseurs entrée [1, 1, 5000]...' },
+        { time: '00:00:02', level: 'INFO', msg: 'Prétraitement: Filtre Butterworth (Passe-bas 40Hz)' },
+        { time: '00:00:03', level: 'INFO', msg: 'Prétraitement: Normalisation (Z-Score)' },
+        { time: '00:00:03', level: 'DEBUG', msg: 'Démarrage inférence...' },
+        { time: '00:00:03', level: 'SUCCESS', msg: 'Inférence terminée: 3.2ms' },
     ];
 
     const results = {
-        accuracy: 96.3,
-        processingTime: 42
+        class: "Rythme Sinusal Normal",
+        probability: "98.87%",
+        bpm: "72 BPM",
+        anomaly: false
     };
 
     return (
-        <div className="ecg-results-container">
-            {/* Loading Section */}
-            <div className="log-section">
-                <h3 className="section-title">📥 Chargement du signal</h3>
-                <div className="logs">
+        <div className="ecg-demo-wrapper">
+            <div className="ecg-results-container">
+                <div className="terminal-header">
+                    <span className="terminal-dot red"></span>
+                    <span className="terminal-dot yellow"></span>
+                    <span className="terminal-dot green"></span>
+                    <span className="terminal-title">./ecg_analysis_cpp --input signal.dat --model deep_cnn</span>
+                </div>
+
+                <div className="terminal-body">
                     {logs.map((log, idx) => (
-                        <div key={idx} className={`log-line type-${log.type.toLowerCase()}`}>
-                            <span className="log-type">[{log.type}]</span>
-                            <span className="log-message">{log.message}</span>
+                        <div key={idx} className="terminal-line">
+                            <span className="log-time">[{log.time}]</span>
+                            <span className={`log-level level-${log.level.toLowerCase()}`}>[{log.level}]</span>
+                            <span className="log-msg">{log.msg}</span>
                         </div>
                     ))}
-                </div>
-            </div>
 
-            {/* Preprocessing Section */}
-            <div className="log-section">
-                <h3 className="section-title">⚙️ Prétraitement</h3>
-                <div className="logs">
-                    {preprocessing.map((log, idx) => (
-                        <div key={idx} className={`log-line type-${log.type.toLowerCase()}`}>
-                            <span className="log-type">[{log.type}]</span>
-                            <span className="log-message">{log.message}</span>
+                    <div className="terminal-divider"></div>
+
+                    <div className="terminal-result">
+                        <div className="result-line">
+                            <span className="result-label">&gt;&gt;&gt; Prediction:</span>
+                            <span className={`result-value ${results.anomaly ? 'danger' : 'success'}`}>
+                                {results.class}
+                            </span>
                         </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* R-Peaks Detection */}
-            <div className="log-section">
-                <h3 className="section-title">🔍 Détection des pics R</h3>
-                <div className="r-peaks-grid">
-                    {rPeaks.map((peak, idx) => (
-                        <div key={idx} className="r-peak-card">
-                            <div className="peak-label">[R-PEAK]</div>
-                            <div className="peak-data">
-                                <div className="peak-time">
-                                    <span className="label">t =</span>
-                                    <span className="value">{peak.time.toFixed(2)}s</span>
-                                </div>
-                                <div className="peak-amplitude">
-                                    <span className="label">amplitude =</span>
-                                    <span className="value">{peak.amplitude.toFixed(2)} mV</span>
-                                </div>
-                            </div>
+                        <div className="result-line">
+                            <span className="result-label">&gt;&gt;&gt; Confidence:</span>
+                            <span className="result-value info">{results.probability}</span>
                         </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Feature Extraction */}
-            <div className="log-section">
-                <h3 className="section-title">📊 Extraction de features</h3>
-                <div className="logs">
-                    <div className="log-line type-info">
-                        <span className="log-type">[INFO]</span>
-                        <span className="log-message">Extracting features (RR interval, HRV, QRS energy...)</span>
-                    </div>
-                    <div className="log-line type-info">
-                        <span className="log-type">[INFO]</span>
-                        <span className="log-message">Sending features to AI model (ONNX inference)...</span>
+                        <div className="result-line">
+                            <span className="result-label">&gt;&gt;&gt; Heart Rate:</span>
+                            <span className="result-value warning">{results.bpm}</span>
+                        </div>
+                        <div className="result-line cursor-line">
+                            <span className="cursor-prompt">$</span>
+                            <span className="cursor">_</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* AI Predictions */}
-            <div className="log-section">
-                <h3 className="section-title">🤖 Prédictions IA</h3>
-                <div className="predictions-container">
-                    {predictions.map((pred, idx) => (
-                        <div key={idx} className={`prediction-card ${pred.warning ? 'warning' : 'normal'}`}>
-                            <div className="prediction-beat">Beat #{pred.beat}</div>
-                            <div className="prediction-type">{pred.type}</div>
-                            {pred.warning && <div className="warning-badge">⚠️ Anomalie détectée</div>}
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Final Results */}
-            <div className="results-section">
-                <h3 className="section-title">📈 Résultats</h3>
-                <div className="results-grid">
-                    <div className="result-card">
-                        <div className="result-label">Accuracy</div>
-                        <div className="result-value">{results.accuracy}%</div>
-                        <div className="result-bar">
-                            <div className="result-fill" style={{width: `${results.accuracy}%`}}></div>
-                        </div>
-                    </div>
-                    <div className="result-card">
-                        <div className="result-label">Processing Time</div>
-                        <div className="result-value">{results.processingTime} ms</div>
-                        <div className="result-note">⚡ Temps réel quasi-instantané</div>
-                    </div>
-                </div>
+            <div className="model-explanation">
+                <h4>Architecture du Modèle</h4>
+                <p>
+                    Le modèle utilisé est un <strong>Réseau de Neurones Convolutif (1D-CNN)</strong> optimisé pour l'analyse de signaux biomédicaux temporels.
+                    Il a été entraîné sous <strong>PyTorch</strong> avec le dataset MIT-BIH, puis converti en format <strong>ONNX</strong> pour garantir une inférence ultra-rapide en C++.
+                    L'architecture utilise des convolutions causales pour extraire les caractéristiques morphologiques fines (complexes QRS, ondes P/T) et classifier les arythmies en temps réel avec une latence minimale.
+                </p>
             </div>
         </div>
     );

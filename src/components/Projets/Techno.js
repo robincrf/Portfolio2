@@ -7,24 +7,27 @@ const Techno = ({ technologies }) => {
     if (!technologies) return null;
 
     return (
-        <motion.div 
-            className="tech-container"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-        >
-            <h2>Technologies Utilisées</h2>
+        <div className="tech-container">
+            <motion.h2
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+            >
+                Technologies Utilisées
+            </motion.h2>
             <div className="tech-grid">
                 {Object.entries(technologies).map(([tech, description], index) => (
                     <motion.div
                         key={tech}
                         className="tech-bubble"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ 
-                            scale: 1.05,
-                            boxShadow: "0 8px 16px rgba(0,0,0,0.1)"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1, duration: 0.5 }}
+                        whileHover={{
+                            y: -5,
+                            transition: { duration: 0.2 }
                         }}
                     >
                         <h3>{tech}</h3>
@@ -32,7 +35,7 @@ const Techno = ({ technologies }) => {
                     </motion.div>
                 ))}
             </div>
-        </motion.div>
+        </div>
     );
 };
 
