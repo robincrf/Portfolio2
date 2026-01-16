@@ -1,0 +1,379 @@
+/* ========================================
+   SKILLS IDENTITY CARD LAYOUT
+   ======================================== */
+
+/* Ensure Border Box model for all elements in this component to prevent sizing issues */
+.skills-identity-container * {
+    box-sizing: border-box;
+}
+
+.skills-identity-container {
+    width: 100%;
+    min-height: 60vh;
+    /* Reduced from 80vh to be less overwhelming */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    /* Reduced padding */
+    position: relative;
+    z-index: 10;
+}
+
+.skills-id-card {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    /* Limit max width for card look */
+    background: #111;
+    /* Very dark card background */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+    /* Ensure centering */
+}
+
+@media (max-width: 600px) {
+    .skills-identity-container {
+        padding: 0;
+        /* Remove padding to let flex center align */
+        min-height: auto;
+        margin-bottom: 50px;
+        padding-top: 2rem;
+        /* Add top spacing */
+        padding-bottom: 2rem;
+    }
+
+    .skills-id-card {
+        width: 90%;
+        /* Constrain width so it's not edge-to-edge */
+        max-width: 450px;
+        /* Max width for mobile to not be "too big" */
+        border-radius: 12px;
+    }
+}
+
+/* --- LEFT PANEL (Business Card) --- */
+.skills-id-left {
+    flex: 0.8;
+    /* Slightly narrower than content */
+    background: #e0e0e0;
+    /* Clean light background for card contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    position: relative;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.business-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.business-card-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    filter: grayscale(100%);
+    /* Elegant monochrome logo */
+    opacity: 0.8;
+}
+
+.business-card-divider {
+    width: 40px;
+    height: 3px;
+    background-color: #333;
+    margin: 1.5rem auto 0;
+}
+
+.skills-id-title {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #222;
+    margin: 0;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+}
+
+.skills-id-subtitle {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.business-card-socials {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: auto;
+    /* Push to bottom if space permits */
+}
+
+/* --- RIGHT PANEL (Skill List) --- */
+.skills-id-right {
+    flex: 1;
+    background: #1a1a1a;
+    /* Dark background */
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.skills-section-header {
+    font-family: 'Courier New', Courier, monospace;
+    color: #00c3ff;
+    /* Cyan accent color */
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.skills-intro-text {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+/* Skill Grid & Items */
+.skills-id-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Full width list items */
+    gap: 1rem;
+}
+
+.skill-card-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.skill-card-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(10px);
+    /* Slid right interaction */
+}
+
+.skill-card-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-icon-mini {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.skill-name {
+    font-family: 'Courier New', monospace;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.skill-short-desc {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+/* Detail View Styles */
+.fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.back-btn {
+    background: transparent;
+    border: none;
+    color: #00c3ff;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.detail-title {
+    font-size: 2rem;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+}
+
+.detail-desc {
+    font-size: 1.1rem;
+    color: #ddd;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.detail-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.detail-list li {
+    background: rgba(0, 195, 255, 0.1);
+    color: #00c3ff;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .skills-id-card {
+        flex-direction: column;
+        max-width: 600px;
+        /* Slightly wider to fit content better before mobile split */
+        width: 95%;
+        /* Ensure margins on small screens */
+    }
+
+    .skills-id-left,
+    .skills-id-right {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-identity-container {
+        padding: 0;
+        min-height: auto;
+        margin-bottom: 50px;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .skills-id-card {
+        width: 90%;
+        max-width: 450px;
+        border-radius: 12px;
+    }
+
+    .skills-id-left,
+    .skills-id-right {
+        padding: 1.5rem 1rem;
+    }
+
+    .business-card-logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+
+    .skills-id-title {
+        font-size: 1.6rem;
+    }
+
+    .skills-id-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .business-card-socials {
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .skills-section-header {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .skill-card-item {
+        padding: 0.8rem;
+        gap: 1rem;
+    }
+
+    .skill-icon-mini {
+        width: 36px;
+        height: 36px;
+    }
+
+    .skill-name {
+        font-size: 1rem;
+    }
+
+    .skill-short-desc {
+        font-size: 0.8rem;
+    }
+
+    /* Detail View Mobile */
+    .detail-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .detail-title {
+        font-size: 1.5rem;
+    }
+
+    .detail-desc {
+        font-size: 0.95rem;
+    }
+
+    .detail-list {
+        grid-template-columns: 1fr;
+        /* Stack list items */
+    }
+}

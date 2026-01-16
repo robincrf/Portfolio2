@@ -69,6 +69,7 @@
     max-height: 80vh;
     /* Limit height to prevent touching bottom edge */
     scrollbar-width: thin;
+
     /* Firefox */
 }
 
@@ -101,8 +102,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    /* Modern sans-serif */
+    font-family: 'Courier New', Courier, monospace;
+    /* Police monospace comme la page principale */
 }
 
 .parcours-text h2 {
@@ -116,14 +117,13 @@
     margin-bottom: 0.4rem;
     font-weight: 700;
     color: var(--text-dark);
-    /* Removed Courier New */
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
 .parcours-text p,
 .parcours-text li {
-    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    font-size: clamp(1.1rem, 1.2vw, 1.2rem);
     line-height: 1.4;
     margin-bottom: 0.5rem;
     color: var(--text-light);

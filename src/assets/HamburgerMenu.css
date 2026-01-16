@@ -1,63 +1,79 @@
 /* Bouton : fixe pour éviter le clipping par les parents */
 .hamburger-button {
-  position: fixed; /* <- fixed, plus fiable */
-  top: 20px;
-  right: 20px;
-  z-index: 2147483647;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 40px;
-  height: 40px;
-  background: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,.2);
-  cursor: pointer;
+    position: fixed;
+    /* <- fixed, plus fiable */
+    top: 20px;
+    right: 20px;
+    z-index: 2147483647;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    cursor: pointer;
 }
 
 .hamburger-button span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background: #333;
-  transition: all .3s ease;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #333;
+    transition: all .3s ease;
 }
 
 /* Panneau : fixe et slide avec transform (plus fiable que right:-100%) */
 .hamburger-menu {
-  position: fixed;
-  inset: 0 0 0 auto; /* top:0; right:0; bottom:0; left:auto */
-  width: 100%;
-  height: 100vh;
-  background: rgba(255,255,255,.98);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translateX(100%); /* hors écran */
-  transition: transform .3s ease, opacity .3s ease;
-  opacity: 0;
-  z-index: 2147483646;
-  pointer-events: none; /* désactivé fermé */
+    position: fixed;
+    inset: 0 0 0 auto;
+    /* top:0; right:0; bottom:0; left:auto */
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, .98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    /* hors écran */
+    transition: transform .3s ease, opacity .3s ease;
+    opacity: 0;
+    z-index: 2147483646;
+    pointer-events: none;
+    /* désactivé fermé */
 }
 
 .hamburger-menu.open {
-  transform: translateX(0);
-  opacity: 1;
-  pointer-events: auto; /* activé ouvert */
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    /* activé ouvert */
 }
 
-.menu-list { list-style: none; padding: 0; margin: 0; max-width: 800px; width: 100%; }
-.menu-list li {
-  margin: 20px 0;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  font-family: 'Courier New', Courier, monospace;
-  transition: transform .3s ease, color .3s ease;
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 800px;
+    width: 100%;
 }
-.menu-list li:hover { color: #666; transform: translateX(5px); }
+
+.menu-list li {
+    margin: 20px 0;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    transition: transform .3s ease, color .3s ease;
+}
+
+.menu-list li:hover {
+    color: #666;
+    transform: translateX(5px);
+}
 
 /* Menu hamburger */
 .menu-container {
@@ -65,6 +81,19 @@
     top: 60px;
     right: 20px;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-label {
+    margin-bottom: 5px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    /* Good for legibility on mixed backgrounds */
 }
 
 .menu-btn {
@@ -157,12 +186,13 @@
         width: 25px;
         height: 25px;
     }
+
     .menu-nav {
         top: 200px;
     }
 
     .menu-nav li {
-        
+
         font-size: 12px;
         margin: 15px 0;
     }

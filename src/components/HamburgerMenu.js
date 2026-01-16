@@ -11,8 +11,9 @@ const HamburgerMenu = ({ menuOpen: externalMenuOpen, onHamburgerClick: externalC
 
     return (
         <div className="menu-container">
-            <button 
-                className={`menu-btn ${menuOpen ? 'open' : ''}`} 
+            <div className="menu-label">MES PROJETS</div>
+            <button
+                className={`menu-btn ${menuOpen ? 'open' : ''}`}
                 onClick={handleClick}
             >
                 <span></span>
@@ -25,6 +26,7 @@ const HamburgerMenu = ({ menuOpen: externalMenuOpen, onHamburgerClick: externalC
                     <li><Link to="/projet1">ECG C++</Link></li>
                     <li><Link to="/projet2">ASCON</Link></li>
                     <li><Link to="/projet3">Pipeline DQ</Link></li>
+                    <li><Link to="/projet5">KPMG RAG</Link></li>
                 </ul>
             </nav>
         </div>

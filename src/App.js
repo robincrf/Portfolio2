@@ -3,7 +3,7 @@ import AcceuilPage from "./Page/AcceuilPage";
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import "./assets/style.css"
 import "./assets/layout.css"
-import "./assets/apropos.css"
+
 
 import Projet1 from "./Page/Projets/Projet1";
 import Projet2 from "./Page/Projets/Projet2";
