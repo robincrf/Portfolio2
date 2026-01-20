@@ -108,7 +108,7 @@ export const Bubble5 = () => (
     <InfoCard
         year="Loisirs"
         title="Sports"
-        description="Combattant et fan de sport de combat. La discipline et la persévérance sont au cœur de ma pratique."
+        description="Combattant et fan de sport de combat. Pratiquant de boxe anglaise, jujusti brésilien et mma"
         videoSrc={`${process.env.PUBLIC_URL}/video/stickman.mp4`}
         themeClass="theme-orange"
     />

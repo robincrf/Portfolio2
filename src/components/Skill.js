@@ -66,52 +66,58 @@ function Skill() {
 
                 {/* --- RIGHT PANEL: SKILLS --- */}
                 <div className="skills-id-right">
-                    {activeSkill ? (
-                        // DETAIL VIEW
-                        <div className="skill-detail-view fade-in">
-                            <button
-                                className="back-btn"
-                                onClick={() => setActiveSkill(null)}
-                            >
-                                ← Retour
-                            </button>
-                            <div className="detail-header">
-                                <img src={skills[activeSkill].imageSrc} alt="" className="detail-icon" />
-                                <h3 className="detail-title">{activeSkill}</h3>
-                            </div>
-                            <p className="detail-desc">{skills[activeSkill].shortDesc}</p>
-                            <ul className="detail-list">
-                                {skills[activeSkill].items.map((item, i) => (
-                                    <li key={i}>{item}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    ) : (
-                        // LIST VIEW
-                        <>
-                            <h3 className="skills-section-header">MES COMPÉTENCES</h3>
-                            <p className="skills-intro-text">
-                                Cliquez sur une technologie pour voir les détails.
-                            </p>
+                    <div className="skills-flip-container">
+                        <div className={`skills-flipper ${activeSkill ? 'is-flipped' : ''}`}>
+                            {/* FRONT FACE: LIST VIEW */}
+                            <div className="skills-front">
+                                <h3 className="skills-section-header">MES COMPÉTENCES</h3>
+                                <p className="skills-intro-text">
+                                    Cliquez sur une technologie pour voir les détails.
+                                </p>
 
-                            <div className="skills-id-grid">
-                                {Object.entries(skills).map(([name, data]) => (
-                                    <div
-                                        className="skill-card-item"
-                                        key={name}
-                                        onClick={() => setActiveSkill(name)}
-                                        style={{ cursor: 'pointer' }}
-                                    >
-                                        <img src={data.imageSrc} alt={name} className="skill-icon-mini" />
-                                        <div className="skill-card-text">
-                                            <span className="skill-name">{name}</span>
-                                            <span className="skill-short-desc">{data.shortDesc}</span>
+                                <div className="skills-id-grid">
+                                    {Object.entries(skills).map(([name, data]) => (
+                                        <div
+                                            className="skill-card-item"
+                                            key={name}
+                                            onClick={() => setActiveSkill(name)}
+                                            style={{ cursor: 'pointer' }}
+                                        >
+                                            <img src={data.imageSrc} alt={name} className="skill-icon-mini" />
+                                            <div className="skill-card-text">
+                                                <span className="skill-name">{name}</span>
+                                                <span className="skill-short-desc">{data.shortDesc}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
-                        </>
-                    )}
+
+                            {/* BACK FACE: DETAIL VIEW */}
+                            <div className="skills-back">
+                                {activeSkill && (
+                                    <div className="skill-detail-view">
+                                        <button
+                                            className="back-btn"
+                                            onClick={() => setActiveSkill(null)}
+                                        >
+                                            ← Retour
+                                        </button>
+                                        <div className="detail-header">
+                                            <img src={skills[activeSkill].imageSrc} alt="" className="detail-icon" />
+                                            <h3 className="detail-title">{activeSkill}</h3>
+                                        </div>
+                                        <p className="detail-desc">{skills[activeSkill].shortDesc}</p>
+                                        <ul className="detail-list">
+                                            {skills[activeSkill].items.map((item, i) => (
+                                                <li key={i}>{item}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
