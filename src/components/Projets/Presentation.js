@@ -4,23 +4,23 @@ import "../../assets/projet/Projet.css";
 
 import AlertEmail from './AlertEmail';
 import ECGResults from './ECGResults';
-import KPMGRagDemo from './KPMGRagDemo';
+
 
 const Presentation = ({ projet = {} }) => {
     if (!projet) return null;
 
     const {
-        titre = '',
+        title = '',
         description = '',
-        contexte = '',
-        objectifs = [],
+        context = '',
+        objectives = [],
         images = []
     } = projet;
 
     // Check project types
-    const isDataQualityProject = titre.includes('Data Quality');
-    const isECGProject = titre.includes('anomalies cardiaques') || titre.includes('ECG');
-    const isKPMGProject = titre.includes('KPMG');
+    const isDataQualityProject = title.includes('Data Quality');
+    const isECGProject = title.includes('Cardiac') || title.includes('ECG');
+    const isKPMGProject = title.includes('KPMG');
 
     return (
         <section className="projet-presentation">
@@ -30,11 +30,11 @@ const Presentation = ({ projet = {} }) => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
             >
-                <h1>{titre}</h1>
+                <h1>{title}</h1>
                 <p>{description}</p>
             </motion.div>
 
-            {contexte && (
+            {context && (
                 <motion.div
                     className="contexte"
                     initial={{ opacity: 0, x: -20 }}
@@ -42,12 +42,12 @@ const Presentation = ({ projet = {} }) => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    <h2>Contexte</h2>
-                    <p>{contexte}</p>
+                    <h2>Context</h2>
+                    <p>{context}</p>
                 </motion.div>
             )}
 
-            {objectifs.length > 0 && (
+            {objectives.length > 0 && (
                 <motion.div
                     className="objectifs"
                     initial={{ opacity: 0, x: -20 }}
@@ -55,9 +55,9 @@ const Presentation = ({ projet = {} }) => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                    <h2>Objectifs</h2>
+                    <h2>Objectives</h2>
                     <ul>
-                        {objectifs.map((obj, index) => (
+                        {objectives.map((obj, index) => (
                             <li key={index}>{obj}</li>
                         ))}
                     </ul>
@@ -75,15 +75,12 @@ const Presentation = ({ projet = {} }) => {
                         if (isDataQualityProject && index === 0) {
                             return <AlertEmail key={index} />;
                         }
-                        // For KPMG project
-                        if (isKPMGProject && index === 0) {
-                            return <KPMGRagDemo key={index} />;
-                        }
+
                         return (
                             <motion.img
                                 key={index}
                                 src={img}
-                                alt={`${titre} aperçu ${index + 1}`}
+                                alt={`${title} preview ${index + 1}`}
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}

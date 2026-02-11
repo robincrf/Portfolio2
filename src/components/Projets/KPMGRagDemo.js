@@ -14,8 +14,8 @@ const KPMGRagDemo = () => {
     ];
 
     const pipelineLogs = [
-        { msg: "Initialisation du pipeline RAG...", type: "info", delay: 100 },
-        { msg: "User Query: 'Quelle est la stratégie IA d'Apple ?'", type: "process", delay: 800 },
+        { msg: "Initializing RAG pipeline...", type: "info", delay: 100 },
+        { msg: "User Query: 'What is Apple's AI strategy?'", type: "process", delay: 800 },
         { msg: "Encoding query (Mistral-embed-v2, 1024 dim)...", type: "info", delay: 1500 },
         { msg: "Querying Pinecone index 'kpmg-veille' (Namespace: 'financial_reports')...", type: "process", delay: 2200 },
         { msg: "Found 3 relevant chunks (Similarity: 0.89, 0.87, 0.85)", type: "success", delay: 3000 },
@@ -68,7 +68,7 @@ const KPMGRagDemo = () => {
                     <div className="query-box">
                         <span className="prompt-char">&gt;</span>
                         <span className="typed-text">
-                            {step > 0 ? "Quelle est la stratégie IA d'Apple, et quels sont les risques ?" : ""}
+                            {step > 0 ? "What is Apple's AI strategy, and what are the risks?" : ""}
                         </span>
                         <span className="cursor"></span>
                     </div>
@@ -103,17 +103,17 @@ const KPMGRagDemo = () => {
                 {/* 4. Final Result */}
                 <div className={`rag-result ${step === 5 ? 'visible' : ''}`}>
                     <div className="result-header">
-                        <h4>💡 Analyse Générée</h4>
+                        <h4>💡 Generated Analysis</h4>
                         <span className="llm-badge">Mistral Medium</span>
                     </div>
                     <div className="answer-text">
                         <p>
-                            Apple accélère ses investissements dans l'IA générative pour rattraper ses concurrents.
-                            L'entreprise intègre l'IA directement dans ses appareils (On-device AI) pour garantir la confidentialité.
-                            <span className="citation" title="Source: Apple 10-K Report 2024 | Fiabilité: Haute">SEC 10-K 2024</span>
+                            Apple is accelerating its investments in generative AI to catch up with competitors.
+                            The company is integrating AI directly into its devices (On-device AI) to ensure privacy.
+                            <span className="citation" title="Source: Apple 10-K Report 2024 | Reliability: High">SEC 10-K 2024</span>
                         </p>
                         <p>
-                            <strong>Risques identifiés :</strong> La dépendance à la Chine et les régulations antitrust (DMA en Europe) pourraient impacter la croissance des services.
+                            <strong>Identified risks:</strong> Dependence on China and antitrust regulations (DMA in Europe) could impact services growth.
                             <span className="citation" title="Source: NewsAPI - Bloomberg Technology | Date: 12/2025">Bloomberg</span>
                         </p>
                     </div>

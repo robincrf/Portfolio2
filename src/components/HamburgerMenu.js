@@ -11,7 +11,7 @@ const HamburgerMenu = ({ menuOpen: externalMenuOpen, onHamburgerClick: externalC
 
     return (
         <div className="menu-container">
-            <div className="menu-label">MES PROJETS</div>
+            <div className="menu-label">MY PROJECTS</div>
             <button
                 className={`menu-btn ${menuOpen ? 'open' : ''}`}
                 onClick={handleClick}

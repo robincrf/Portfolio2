@@ -14,7 +14,7 @@ const Techno = ({ technologies }) => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
             >
-                Technologies Utilisées
+                Technologies Used
             </motion.h2>
             <div className="tech-grid">
                 {Object.entries(technologies).map(([tech, description], index) => (

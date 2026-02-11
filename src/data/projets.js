@@ -1,23 +1,23 @@
 export const projetsData = {
   projet1: {
-    titre: "Détection intelligente d’anomalies cardiaques (C++)",
+    title: "Intelligent Cardiac Anomaly Detection (C++)",
     technologies: {
-      "C++17": "Implémentation performante temps réel",
-      Eigen: "Algèbre linéaire (filtres, convolutions, features)",
-      "FFTW3": "Transformées de Fourier pour l’analyse fréquentielle",
-      OpenMP: "Parallélisation du prétraitement et des features",
-      "ONNX Runtime / libtorch": "Inférence du modèle IA (classification)",
-      Qt: "Interface de visualisation des signaux et prédictions"
+      "C++17": "High-performance real-time implementation",
+      Eigen: "Linear algebra (filters, convolutions, features)",
+      "FFTW3": "Fourier transforms for frequency analysis",
+      OpenMP: "Parallelization of preprocessing and feature extraction",
+      "ONNX Runtime / libtorch": "AI model inference (classification)",
+      Qt: "Signal and prediction visualization interface"
     },
     description:
-      "🔍 Définition : sur un signal ECG, chaque battement de cœur génère une onde appelée complexe QRS, qui représente l’activité électrique des ventricules lors de leur contraction. Le pic R correspond au point le plus haut de ce complexe, c’est-à-dire le maximum d’amplitude positive du battement. Il indique le moment exact où le cœur se contracte pour propulser le sang dans les artères. C’est le repère principal utilisé pour mesurer la fréquence cardiaque (en battements par minute). Le temps entre deux pics R successifs correspond à l’intervalle RR. Il sert également à détecter les anomalies du rythme cardiaque, telles que : arythmies, tachycardies ou fibrillations.",
-    contexte: "Projet académique / R&D — IA & santé",
-    objectifs: [
-      "Filtrage passe-bande, suppression du bruit de fond et de la ligne de base",
-      "Détection des pics R en temps quasi réel (fenêtrage + dérivation + intégration)",
-      "Extraction de caractéristiques temporelles et fréquentielles (RR, HRV, énergie QRS)",
-      "Modèle d’IA pour classifier les rythmes (ONNX/libtorch) avec métriques (accuracy, recall, F1)",
-      "Visualisation : tracé ECG + marquage des R et des prédictions"
+      "🔍 Definition: on an ECG signal, each heartbeat generates a wave called the QRS complex, which represents the electrical activity of the ventricles during contraction. The R peak corresponds to the highest point of this complex, i.e. the maximum positive amplitude of the beat. It indicates the exact moment when the heart contracts to pump blood into the arteries. It is the main reference used to measure heart rate (in beats per minute). The time between two successive R peaks corresponds to the RR interval. It is also used to detect heart rhythm anomalies such as: arrhythmias, tachycardias, or fibrillations.",
+    context: "Academic / R&D project — AI & healthcare",
+    objectives: [
+      "Bandpass filtering, background noise and baseline removal",
+      "Near real-time R peak detection (windowing + derivation + integration)",
+      "Temporal and frequency feature extraction (RR, HRV, QRS energy)",
+      "AI model for rhythm classification (ONNX/libtorch) with metrics (accuracy, recall, F1)",
+      "Visualization: ECG trace + R peak and prediction markers"
     ],
     images: [
       `${process.env.PUBLIC_URL}/image/ECG_cpp.png`,
@@ -25,20 +25,20 @@ export const projetsData = {
     ]
   },
   projet2: {
-    titre: "Implémentation de l’algorithme cryptographique ASCON-256 (VHDL)",
+    title: "ASCON-256 Cryptographic Algorithm Implementation (VHDL)",
     technologies: {
-      SystemVerilog: "Langage de description matériel pour la simulation du chiffrement",
-      ASCON: "Algorithme cryptographique léger sélectionné pour le standard NIST 2023",
+      SystemVerilog: "Hardware description language for encryption simulation",
+      ASCON: "Lightweight cryptographic algorithm selected for the NIST 2023 standard",
     },
     description:
-      "Implémentation complète du chiffrement ASCON-256 avec 12 permutations internes, ajout de constantes rondes, opérations de substitution non linéaire (S-box), diffusion linéaire et simulation du comportement matériel en VHDL. Le but du projet était de comprendre la structure interne d’un algorithme cryptographique moderne et de valider son fonctionnement par simulation.",
-    contexte: "Projet universitaire — cryptographie matérielle",
-    objectifs: [
-      "Implémenter la permutation ASCON-256 (12 rounds)",
-      "Réaliser les étapes : ajout de constante, substitution (S-box) et diffusion linéaire",
-      "Créer le testbench pour valider la sortie et le timing logique",
-      "Simuler et observer les transitions internes via ModelSim",
-      "Optimiser les ressources logiques et le temps de propagation"
+      "Full implementation of ASCON-256 encryption with 12 internal permutations, round constant addition, non-linear substitution operations (S-box), linear diffusion, and hardware behavior simulation in VHDL. The goal of the project was to understand the internal structure of a modern cryptographic algorithm and validate its operation through simulation.",
+    context: "University project — hardware cryptography",
+    objectives: [
+      "Implement the ASCON-256 permutation (12 rounds)",
+      "Carry out the steps: constant addition, substitution (S-box), and linear diffusion",
+      "Create the testbench to validate output and logical timing",
+      "Simulate and observe internal transitions via ModelSim",
+      "Optimize logic resources and propagation time"
     ],
     images: [
       `${process.env.PUBLIC_URL}/image/ascon_pr.png`,
@@ -46,49 +46,49 @@ export const projetsData = {
     ]
   },
   projet3: {
-    titre: "Pipeline Data Quality automatisé (Décathlon)",
+    title: "Automated Data Quality Pipeline (Decathlon)",
     technologies: {
-      Python: "Langage principal pour l’orchestration et les règles",
-      "Great Expectations": "Validation des données selon 7 normes de qualité",
-      Pandas: "Chargement, profiling et transformations du fichier",
-      "SMTP (email)": "Notification automatique des écarts et rapports",
-      GitHub: "CI/CD et suivi de version du référentiel"
+      Python: "Main language for orchestration and rule definition",
+      "Great Expectations": "Data validation against 7 quality standards",
+      Pandas: "File loading, profiling, and transformations",
+      "SMTP (email)": "Automatic notification of deviations and reports",
+      GitHub: "CI/CD and repository version tracking"
     },
     description:
-      "Mise en place d’un pipeline automatisé de contrôle qualité des données issues de fichier volumineux de Décathlon. Les règles sont définies avec Great Expectations et couvrent 7 dimensions de data quality. À chaque exécution, un rapport est généré et envoyé par email (SMTP) avec les métriques, les tests échoués et les recommandations.",
-    contexte: "Projet personnel — data engineering & gouvernance de données",
-    objectifs: [
-      "Couvrir les 7 normes de data quality : complétude, exactitude, validité, unicité, cohérence, intégrité référentielle, fraîcheur",
-      "Définir un catalogue d’expectations : schéma, types, bornes, regex, clés primaires/doublons, référentiels",
-      "Générer automatiquement un rapport HTML/JSON (Great Expectations Data Docs)",
-      "Notifier par email (SMTP) en cas d’échec avec pièces jointes (rapport + échantillon d’erreurs)",
-      "Orchestration planifiée (cron) et relance sur incident",
-      "Traçabilité : logs, métriques et historisation des exécutions"
+      "Implementation of an automated data quality control pipeline for large Decathlon data files. Rules are defined with Great Expectations and cover 7 data quality dimensions. On each run, a report is generated and sent via email (SMTP) with metrics, failed tests, and recommendations.",
+    context: "Personal project — data engineering & data governance",
+    objectives: [
+      "Cover the 7 data quality standards: completeness, accuracy, validity, uniqueness, consistency, referential integrity, freshness",
+      "Define an expectations catalog: schema, types, bounds, regex, primary keys/duplicates, reference data",
+      "Automatically generate an HTML/JSON report (Great Expectations Data Docs)",
+      "Send email notifications (SMTP) on failure with attachments (report + error sample)",
+      "Scheduled orchestration (cron) and incident recovery",
+      "Traceability: logs, metrics, and execution history"
     ],
     images: [
       `${process.env.PUBLIC_URL}/image/mail_dq.png`
     ]
   },
   projet4: {
-    titre: "Portfolio moderne",
+    title: "Modern Portfolio",
     technologies: {
-      React: "Librairie pour interfaces dynamiques et déclaratives",
-      TypeScript: "Typage statique pour fiabilité et maintenabilité",
-      "Framer Motion": "Animations fluides et accessibles",
-      "React Router": "Navigation déclarative multi-pages",
-      CSS3: "Styles responsive (grid/flex) et variables CSS",
-      Github: "Plateforme de développement et d'hébergement"
+      React: "Library for dynamic and declarative interfaces",
+      TypeScript: "Static typing for reliability and maintainability",
+      "Framer Motion": "Smooth and accessible animations",
+      "React Router": "Declarative multi-page navigation",
+      CSS3: "Responsive styles (grid/flex) and CSS variables",
+      Github: "Development and hosting platform"
     },
     description:
-      "Un portfolio moderne en React + TypeScript, basé sur une logique de composants réutilisables. Les données des projets proviennent d’une ‘API’ locale (fichier dédié) afin de séparer présentation et contenu. Le site présente mon parcours professionnel, mes réalisations et mes compétences.",
-    contexte: "Projet personnel — vitrine professionnelle",
-    objectifs: [
-      "Architecture modulaire avec composants réutilisables",
-      "Source de données centralisée (fichier API) et typée",
-      "Performances Web (Lighthouse 95+)",
-      "Accessibilité (navigation clavier, aria, contrastes)",
-      "Design responsive",
-      "Déploiement continu Github"
+      "A modern portfolio built with React + TypeScript, based on reusable component logic. Project data comes from a local 'API' (dedicated file) to separate presentation and content. The site showcases my professional journey, achievements, and skills.",
+    context: "Personal project — professional showcase",
+    objectives: [
+      "Modular architecture with reusable components",
+      "Centralized and typed data source (API file)",
+      "Web performance (Lighthouse 95+)",
+      "Accessibility (keyboard navigation, aria, contrasts)",
+      "Responsive design",
+      "Continuous deployment via Github"
     ],
     images: [
       `${process.env.PUBLIC_URL}/image/projet1/screen1.png`,
@@ -96,29 +96,29 @@ export const projetsData = {
     ]
   },
   projet5: {
-    titre: "Système RAG de Veille Stratégique (KPMG)",
+    title: "RAG-based Strategic Intelligence System (KPMG)",
     technologies: {
-      Python: "Orchestration du pipeline RAG et ingestion des données",
-      LangChain: "Framework pour le chaînage des composants (Embeddings, Pinecone, LLM)",
-      Pinecone: "Base de données vectorielle serverless (namespaces isolés)",
-      "Mistral AI": "Modèle de langage (Mistral Medium) et Embeddings (1024 dim)",
-      "yfinance / NewsAPI": "Flux de données financiers et actualités en temps réel",
-      Gradio: "Interface de démonstration interactive pour les analystes"
+      Python: "RAG pipeline orchestration and data ingestion",
+      LangChain: "Framework for component chaining (Embeddings, Pinecone, LLM)",
+      Pinecone: "Serverless vector database (isolated namespaces)",
+      "Mistral AI": "Language model (Mistral Medium) and Embeddings (1024 dim)",
+      "yfinance / NewsAPI": "Real-time financial data and news feeds",
+      Gradio: "Interactive demo interface for analysts"
     },
     description:
-      "🔍 Conception d'un système RAG (Retrieval-Augmented Generation) pour automatiser la veille concurrentielle du KPMG Global Strategy Group. Le système ingère des rapports financiers (SEC 10-K), des news et des données de marché, les indexe dans Pinecone avec une isolation par namespace, et utilise Mistral Medium pour générer des analyses sourcées et fiables. L'objectif est de réduire de 60% le temps de recherche des analystes tout en garantissant la traçabilité de l'information (citations obligatoires).",
-    contexte: "Hackathon KPMG — 1er Prix (Innovation & Stratégie)",
-    objectifs: [
-      "Pipeline d'ingestion multi-sources : SEC EDGAR, NewsAPI, yfinance, PDFs",
-      "Architecture RAG avancée : Chunking adaptatif, Embeddings Mistral, Retriever hybride",
-      "Fact-checking rigoureux : Prompt engineering imposant des citations (Source | Fiabilité | Date)",
-      "Interface analyste : Chatbot capable de comparer des données cross-namespaces (ex: News vs Finance)",
-      "Architecture Scalable : Pinecone Serverless + LangChain LCEL"
+      "🔍 Design of a RAG (Retrieval-Augmented Generation) system to automate competitive intelligence for the KPMG Global Strategy Group. The system ingests financial reports (SEC 10-K), news, and market data, indexes them in Pinecone with namespace isolation, and uses Mistral Medium to generate sourced and reliable analyses. The goal is to reduce analyst research time by 60% while ensuring information traceability (mandatory citations).",
+    context: "KPMG Hackathon — 1st Prize (Innovation & Strategy)",
+    objectives: [
+      "Multi-source ingestion pipeline: SEC EDGAR, NewsAPI, yfinance, PDFs",
+      "Advanced RAG architecture: adaptive chunking, Mistral Embeddings, hybrid retriever",
+      "Rigorous fact-checking: prompt engineering enforcing citations (Source | Reliability | Date)",
+      "Analyst interface: chatbot capable of cross-namespace data comparison (e.g. News vs Finance)",
+      "Scalable architecture: Pinecone Serverless + LangChain LCEL"
     ],
     images: [
-      `${process.env.PUBLIC_URL}/image/kpmg_rag_demo.png`
-      // Placeholder for the interactive component
+      `${process.env.PUBLIC_URL}/image/interface.png`,
+      `${process.env.PUBLIC_URL}/image/segment.png`,
+      `${process.env.PUBLIC_URL}/image/chatbot.png`
     ]
   }
 };
-// Ajouter les autres projets ici

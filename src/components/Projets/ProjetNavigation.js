@@ -14,7 +14,7 @@ function ProjetNavigation({ currentProjet }) {
         <nav className="projet-navigation">
             <div className="projet-nav-container">
                 <Link to="/" className="projet-nav-link">
-                    Accueil
+                    Home
                 </Link>
                 {projets.map((projet) => (
                     <Link

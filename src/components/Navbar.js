@@ -18,7 +18,7 @@ function Navbar() {
                 </div>
                 <div className="navbar-typed">
                     <ReactTyped
-                        strings={['Bienvenue sur mon site', 'Découvrez mes projets']}
+                        strings={['Welcome to my website, discover my projects']}
                         typeSpeed={50}
                         backSpeed={30}
                         loop
@@ -26,7 +26,7 @@ function Navbar() {
                 </div>
                 <nav className="navbar-right">
                     <ul className="navbar-menu">
-                        <li><Link to="/">Accueil</Link></li>
+                        <li><Link to="/">Home</Link></li>
                         <li><Link to="/cv">CV</Link></li>
                     </ul>
                 </nav>

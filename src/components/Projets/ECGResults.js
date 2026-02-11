@@ -2,20 +2,20 @@ import React from 'react';
 import '../../assets/projet/ECGResults.css';
 
 const ECGResults = () => {
-    // Simulation de logs C++ / Deep Learning
+    // Simulation of C++ / Deep Learning logs
     const logs = [
-        { time: '00:00:00', level: 'INFO', msg: 'Init. Système: Threads CPU=8, Mémoire=16Go' },
-        { time: '00:00:01', level: 'INFO', msg: 'Chargement modèle: "ecg_net_v2.onnx" (FP16)' },
-        { time: '00:00:02', level: 'SUCCESS', msg: 'Modèle chargé en 14ms' },
-        { time: '00:00:02', level: 'DEBUG', msg: 'Allocation tenseurs entrée [1, 1, 5000]...' },
-        { time: '00:00:02', level: 'INFO', msg: 'Prétraitement: Filtre Butterworth (Passe-bas 40Hz)' },
-        { time: '00:00:03', level: 'INFO', msg: 'Prétraitement: Normalisation (Z-Score)' },
-        { time: '00:00:03', level: 'DEBUG', msg: 'Démarrage inférence...' },
-        { time: '00:00:03', level: 'SUCCESS', msg: 'Inférence terminée: 3.2ms' },
+        { time: '00:00:00', level: 'INFO', msg: 'System Init: CPU Threads=8, Memory=16GB' },
+        { time: '00:00:01', level: 'INFO', msg: 'Loading model: "ecg_net_v2.onnx" (FP16)' },
+        { time: '00:00:02', level: 'SUCCESS', msg: 'Model loaded in 14ms' },
+        { time: '00:00:02', level: 'DEBUG', msg: 'Allocating input tensors [1, 1, 5000]...' },
+        { time: '00:00:02', level: 'INFO', msg: 'Preprocessing: Butterworth Filter (Low-pass 40Hz)' },
+        { time: '00:00:03', level: 'INFO', msg: 'Preprocessing: Normalization (Z-Score)' },
+        { time: '00:00:03', level: 'DEBUG', msg: 'Starting inference...' },
+        { time: '00:00:03', level: 'SUCCESS', msg: 'Inference completed: 3.2ms' },
     ];
 
     const results = {
-        class: "Rythme Sinusal Normal",
+        class: "Normal Sinus Rhythm",
         probability: "98.87%",
         bpm: "72 BPM",
         anomaly: false
@@ -66,11 +66,11 @@ const ECGResults = () => {
             </div>
 
             <div className="model-explanation">
-                <h4>Architecture du Modèle</h4>
+                <h4>Model Architecture</h4>
                 <p>
-                    Le modèle utilisé est un <strong>Réseau de Neurones Convolutif (1D-CNN)</strong> optimisé pour l'analyse de signaux biomédicaux temporels.
-                    Il a été entraîné sous <strong>PyTorch</strong> avec le dataset MIT-BIH, puis converti en format <strong>ONNX</strong> pour garantir une inférence ultra-rapide en C++.
-                    L'architecture utilise des convolutions causales pour extraire les caractéristiques morphologiques fines (complexes QRS, ondes P/T) et classifier les arythmies en temps réel avec une latence minimale.
+                    The model used is a <strong>Convolutional Neural Network (1D-CNN)</strong> optimized for temporal biomedical signal analysis.
+                    It was trained using <strong>PyTorch</strong> on the MIT-BIH dataset, then converted to <strong>ONNX</strong> format to ensure ultra-fast inference in C++.
+                    The architecture uses causal convolutions to extract fine morphological features (QRS complexes, P/T waves) and classify arrhythmias in real time with minimal latency.
                 </p>
             </div>
         </div>

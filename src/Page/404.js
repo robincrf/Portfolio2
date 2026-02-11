@@ -6,7 +6,7 @@ import '../assets/404.css';
 const NotFound = () => {
     return (
         <div className="not-found">
-            <motion.div 
+            <motion.div
                 className="not-found-content"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -16,7 +16,7 @@ const NotFound = () => {
                 <h2>Page non trouvée</h2>
                 <p>La page que vous recherchez n'existe pas ou a été déplacée.</p>
                 <Link to="/" className="home-button">
-                    Retour à l'accueil
+                    Go back to the homepage
                 </Link>
             </motion.div>
         </div>

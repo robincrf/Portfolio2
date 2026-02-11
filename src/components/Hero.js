@@ -35,12 +35,12 @@ function Hero() {
             left: event.clientX,
             top: event.clientY,
         });
-    
+
         // Met à jour le chemin de l'image à afficher
         setImageSrc(imagePath);
         setIsActive(true); // Déclenche l'animation
     };
-    
+
 
     const handleOverlayClick = () => {
         // Réinitialise l'animation et masque l'image lors d'un second clic
@@ -49,40 +49,40 @@ function Hero() {
         setMenuOpen(false);
     };
 
-        const scrollToTop = () =>
-    new Promise((resolve) => {
-        if (window.scrollY === 0) return resolve();
+    const scrollToTop = () =>
+        new Promise((resolve) => {
+            if (window.scrollY === 0) return resolve();
 
-        let resolved = false;
-        const timeout = setTimeout(() => {
-        if (!resolved) {
-            resolved = true;
-            resolve();
-        }
-        }, 1200); // fallback si l'événement ne se produit pas
+            let resolved = false;
+            const timeout = setTimeout(() => {
+                if (!resolved) {
+                    resolved = true;
+                    resolve();
+                }
+            }, 1200); // fallback si l'événement ne se produit pas
 
-        const check = () => {
-        if (window.scrollY === 0 && !resolved) {
-            resolved = true;
-            clearTimeout(timeout);
-            resolve();
-        } else {
+            const check = () => {
+                if (window.scrollY === 0 && !resolved) {
+                    resolved = true;
+                    clearTimeout(timeout);
+                    resolve();
+                } else {
+                    requestAnimationFrame(check);
+                }
+            };
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             requestAnimationFrame(check);
-        }
-        };
-
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        requestAnimationFrame(check);
-    });
+        });
 
     // Ouvre/ferme le menu, en scrollant d'abord si on est en train d'ouvrir
     const onHamburgerClick = async () => {
-    if (menuOpen) {
-        setMenuOpen(false);
-        return;
-    }
-    await scrollToTop();
-    setMenuOpen(true);
+        if (menuOpen) {
+            setMenuOpen(false);
+            return;
+        }
+        await scrollToTop();
+        setMenuOpen(true);
     };
 
     useEffect(() => {
@@ -92,7 +92,7 @@ function Hero() {
             if (bubbleContainer && hamburger) {
                 const bubbleRect = bubbleContainer.getBoundingClientRect();
                 const hamburgerRect = hamburger.getBoundingClientRect();
-                
+
                 // Vérifie si le hamburger entre en collision avec le conteneur de bulles
                 if (bubbleRect.top <= hamburgerRect.bottom && bubbleRect.top >= 0) {
                     setMenuOpen(false);
@@ -123,7 +123,7 @@ function Hero() {
                 <DelayedRender delay={500}>
                     <h1 className="hero-title">
                         <ReactTyped
-                            strings={['Bienvenue sur mon Portfolio']}
+                            strings={['Welcome on my Portfolio']}
                             typeSpeed={50} // Vitesse de saisie
                             showCursor={false}
                             onComplete={() => setTextCompleted(true)} // Appelé lorsque l'animation est terminée
@@ -136,7 +136,7 @@ function Hero() {
                         <div className='hero-description'>
                             <p>
                                 <ReactTyped
-                                    strings={['Etudiant en Informatique et microélectronique']}
+                                    strings={['Engineering student specializing in Data Science and AI']}
                                     typeSpeed={50} // Vitesse de saisie
                                     showCursor={true}
                                 />
@@ -149,15 +149,19 @@ function Hero() {
             {imageVisible && (
                 <DelayedRender delay={1500}>
                     <div className="hero-image-container">
-                        <img src={`${process.env.PUBLIC_URL}/image/logo_robin.png`} alt='cerisier' style={{ width: "500px" }} />
+                        <img
+                            src={`${process.env.PUBLIC_URL}/image/logo_robin.png`}
+                            alt='profile'
+                            style={{ width: "500px" }}
+                        />
                         <div className='hero-image-texte'>
-                            <h2>CRIFO ROBIN</h2>
+                            <h2>ROBIN CRIFO</h2>
                             <div className='hero-image-list-container'>
-                                <p>Étudiant Ingénieur</p>
+                                <p>Aspiring Data Scientist & AI Engineer</p>
                                 <ul className='hero-image-list'>
                                     <li>Data Science & Machine Learning</li>
-                                    <li>Programmation Orientée Objet</li>
-                                    <li>Developpement web</li>
+                                    <li>Generative AI & Analytics</li>
+                                    <li>Full-Stack Development</li>
                                 </ul>
                             </div>
                         </div>
@@ -165,9 +169,10 @@ function Hero() {
                 </DelayedRender>
             )}
 
+
             {imageVisible && (
                 <DelayedRender delay={2000}>
-                    <HamburgerMenu 
+                    <HamburgerMenu
                         menuOpen={menuOpen}
                         setMenuOpen={setMenuOpen}
                         onHamburgerClick={onHamburgerClick}

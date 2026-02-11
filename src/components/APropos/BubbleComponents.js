@@ -41,74 +41,56 @@ const InfoCard = ({ year, title, description, imageSrc, videoSrc, themeClass }) 
     </div>
 );
 
-/* 
- * BUBBLE 1: PROFILE
- * Theme: Blue
- */
+/* BUBBLE 1: PROFILE */
 export const Bubble1 = () => (
     <InfoCard
         year="2026"
         title="Robin Crifo"
-        description="Etudiant Ingénieur, intéressé par l'application des solutions Data & IA"
-        imageSrc={`${process.env.PUBLIC_URL}/image/tete.jpg`} // Using existing logo as profile placeholder
+        description="Aspiring Data Scientist & AI Engineer focused on building AI and analytics solutions for real business impact."
+        imageSrc={`${process.env.PUBLIC_URL}/image/tete.jpg`}
         themeClass="theme-blue"
     />
 );
 
-/* 
- * BUBBLE 2: EXPERIENCE
- * Theme: Purple
- */
+/* BUBBLE 2: EXPERIENCE */
 export const Bubble2 = () => (
     <InfoCard
-        year="2024"
-        title="Expériences"
-        description="Data Quality Analyst, Developper IOS/ANDROID, membre du forum des entreprises ISMIN"
+        year="Experience"
+        title="Professional Experience"
+        description="Data Quality Consultant Intern (Decathlon), Full-Stack Developer, Company Relations Lead for Engineering Career Fair."
         imageSrc={`${process.env.PUBLIC_URL}/image/bureau.png`}
         themeClass="theme-purple"
     />
 );
 
-/* 
- * BUBBLE 3: PROJECTS
- * Theme: Green
- */
+/* BUBBLE 3: PROJECTS */
 export const Bubble3 = () => (
     <InfoCard
-        year="Projets"
-        title="Réalisations"
-        description="Capteur d'apnée du sommeil, pipeline d'alerting qualité de données, solution de veille de marché, deep learning pour la détection d'arythmie cardiaque"
+        year="Projects"
+        title="GenAI & Data Projects"
+        description="GenAI market intelligence platform (KPMG Hackathon finalist), stock price forecasting (ML vs LSTM), real-time ECG arrhythmia detection."
         imageSrc={`${process.env.PUBLIC_URL}/image/ia_data.png`}
         themeClass="theme-green"
     />
 );
 
-/* 
- * BUBBLE 4: EDUCATION
- * Theme: Orange
- */
+/* BUBBLE 4: EDUCATION */
 export const Bubble4 = () => (
     <InfoCard
-        year="2025-2027"
-        title="Formation"
-        description="Cycle Ingénieur Système microélectronique et informatique des Mines de Saint-Étienne."
+        year="2024–2027"
+        title="Education"
+        description="Engineering Degree at Mines Saint-Étienne (Computer Science, Microelectronics & Data Science)."
         imageSrc={`${process.env.PUBLIC_URL}/image/mines_saint_etienne.jpg`}
         themeClass="theme-orange"
     />
 );
 
-/* 
- * BUBBLE 5: PASSIONS (VIDEO)
- * Theme: Red (Reusing Orange styles or defining new if needed, but styling allows any class)
- * actually I will utilize theme-orange or any existing, let's use theme-orange for consistency or add a theme-red if CSS supported it.
- * But CSS only has 4 themes. I will use theme-orange again or maybe theme-blue.
- * Let's use theme-orange for now.
- */
+/* BUBBLE 5: PASSIONS */
 export const Bubble5 = () => (
     <InfoCard
-        year="Loisirs"
-        title="Sports"
-        description="Combattant et fan de sport de combat. Pratiquant de boxe anglaise, jujusti brésilien et mma"
+        year="Interests"
+        title="Combat Sports"
+        description="Boxing, Brazilian Jiu-Jitsu and MMA practitioner. Passionate about discipline, performance and competition."
         videoSrc={`${process.env.PUBLIC_URL}/video/stickman.mp4`}
         themeClass="theme-orange"
     />

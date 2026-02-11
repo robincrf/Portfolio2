@@ -6,23 +6,33 @@ function Skill() {
 
     const skills = {
         Python: {
-            shortDesc: "Data Science, IA & Analyse de données",
-            items: ['Data Science', 'scikit-learn', 'TensorFlow', 'PyTorch'],
+            shortDesc: "Data Science, ML & Generative AI",
+            items: ['Pandas', 'scikit-learn', 'PyTorch', 'Great Expectations'],
             imageSrc: `${process.env.PUBLIC_URL}/image/python.jpeg`
         },
+        SQL: {
+            shortDesc: "Data querying & analytics",
+            items: ['Data extraction', 'Joins & CTEs', 'Aggregation', 'KPI building'],
+            imageSrc: `${process.env.PUBLIC_URL}/image/sql.png`
+        },
+        'Power BI': {
+            shortDesc: "BI dashboards & data storytelling",
+            items: ['Data modeling', 'DAX basics', 'KPI dashboards', 'Business reporting'],
+            imageSrc: `${process.env.PUBLIC_URL}/image/powerbi.jpeg`
+        },
         'C / C++': {
-            shortDesc: "Programmation système & Performance",
-            items: ['Pointers', 'Memory Management', 'Algorithms', 'Optimization'],
+            shortDesc: "Systems programming & performance",
+            items: ['Memory management', 'Algorithms', 'Optimization', 'Embedded basics'],
             imageSrc: `${process.env.PUBLIC_URL}/image/c++.jpeg`
         },
         React: {
-            shortDesc: "Développement Frontend Moderne",
-            items: ['Hooks', 'Components', 'Context API', 'Framer Motion'],
+            shortDesc: "Modern frontend development",
+            items: ['Hooks', 'Components', 'State management', 'UI integration'],
             imageSrc: `${process.env.PUBLIC_URL}/image/react.png`
         },
-        NodeJs: {
-            shortDesc: "Backend & API Scalables",
-            items: ['Express', 'REST APIs', 'Middleware', 'WebSockets'],
+        'Node.js': {
+            shortDesc: "Backend APIs & scalable services",
+            items: ['Express', 'REST APIs', 'Auth & middleware', 'Deployment basics'],
             imageSrc: `${process.env.PUBLIC_URL}/image/node.webp`
         }
     };
@@ -40,13 +50,31 @@ function Skill() {
                         />
                         <div className="business-card-text">
                             <h2 className="skills-id-title">Robin Crifo</h2>
-                            <p className="skills-id-subtitle">Data & IA | Développeur</p>
-                            <p style={{ fontFamily: "'Courier New', monospace", fontSize: '0.9rem', color: '#666', marginTop: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Mines de Saint-Étienne</p>
+                            <p className="skills-id-subtitle">Aspiring Data Scientist & AI Engineer</p>
+                            <p
+                                style={{
+                                    fontFamily: "'Courier New', monospace",
+                                    fontSize: '0.9rem',
+                                    color: '#666',
+                                    marginTop: '0.5rem',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '1px'
+                                }}
+                            >
+                                Mines Saint-Étienne
+                            </p>
                             <div className="business-card-divider"></div>
                         </div>
                     </div>
 
-                    <div style={{ marginBottom: '1.5rem', fontFamily: "'Helvetica Neue', sans-serif", color: '#444', fontSize: '0.95rem' }}>
+                    <div
+                        style={{
+                            marginBottom: '1.5rem',
+                            fontFamily: "'Helvetica Neue', sans-serif",
+                            color: '#444',
+                            fontSize: '0.95rem'
+                        }}
+                    >
                         robin.crifo@etu.emse.fr
                     </div>
 
@@ -70,9 +98,9 @@ function Skill() {
                         <div className={`skills-flipper ${activeSkill ? 'is-flipped' : ''}`}>
                             {/* FRONT FACE: LIST VIEW */}
                             <div className="skills-front">
-                                <h3 className="skills-section-header">MES COMPÉTENCES</h3>
+                                <h3 className="skills-section-header">SKILLS</h3>
                                 <p className="skills-intro-text">
-                                    Cliquez sur une technologie pour voir les détails.
+                                    Click on a technology to see details.
                                 </p>
 
                                 <div className="skills-id-grid">
@@ -101,7 +129,7 @@ function Skill() {
                                             className="back-btn"
                                             onClick={() => setActiveSkill(null)}
                                         >
-                                            ← Retour
+                                            ← Back
                                         </button>
                                         <div className="detail-header">
                                             <img src={skills[activeSkill].imageSrc} alt="" className="detail-icon" />
