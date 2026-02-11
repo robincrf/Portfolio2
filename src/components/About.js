@@ -85,7 +85,7 @@ function About() {
 
     return (
         <section className="about-section">
-            <h2 className="about-title">À propos de moi</h2>
+            <h2 className="about-title">About Me</h2>
             <div className="bubbles-container">
                 {isReadyForBubbles &&
                     [
