@@ -9,7 +9,7 @@ function Parcours1() {
                         <div className='parcours-section-text'>
                             <h3>Education</h3>
                             <p>
-                                <b>Mines Saint-Étienne</b> — France (2024–2027)<br />
+                                <b>Mines Saint-Étienne</b> — Top 10 engineering school - France (2024–2027)<br />
                                 Engineering Degree in Computer Science and Data Science.<br /><br />
 
                                 <b>Lycée Buffon</b> — Paris (2022–2024)<br />
